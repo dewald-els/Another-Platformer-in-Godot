@@ -1,0 +1,2 @@
+class_name Level_003
+extends BaseLevel

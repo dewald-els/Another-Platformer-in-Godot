@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://muio45wgvwim"]
+
+[ext_resource type="Script" path="res://scenes/player/player.gd" id="1_r4kqk"]
+[ext_resource type="SpriteFrames" uid="uid://coebh1t8ri1jf" path="res://scenes/player/resources/player_animated_sprite_frames.tres" id="2_emhr1"]
+[ext_resource type="PackedScene" uid="uid://da404b2nox82t" path="res://scenes/components/health/health.tscn" id="2_q5gb0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_45njb"]
+size = Vector2(12, 11)
+
+[node name="Player" type="CharacterBody2D"]
+collision_layer = 2
+script = ExtResource("1_r4kqk")
+acceleration = 200.0
+max_speed = 150
+fall_gravity_multiplier = 1.8
+
+[node name="Components" type="Node" parent="."]
+
+[node name="Health" parent="Components" instance=ExtResource("2_q5gb0")]
+max_health = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -5.5)
+shape = SubResource("RectangleShape2D_45njb")
+
+[node name="Visuals" type="Node2D" parent="."]
+position = Vector2(0, -8)
+
+[node name="AnimatedSprite" type="AnimatedSprite2D" parent="Visuals"]
+unique_name_in_owner = true
+sprite_frames = ExtResource("2_emhr1")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.958772

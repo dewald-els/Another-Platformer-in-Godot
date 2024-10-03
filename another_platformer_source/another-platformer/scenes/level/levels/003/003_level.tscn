@@ -1,0 +1,94 @@
+[gd_scene load_steps=4 format=4 uid="uid://tmc4fh0gi6jl"]
+
+[ext_resource type="PackedScene" uid="uid://chms2w2ome023" path="res://scenes/level/base_level.tscn" id="1_yxv5c"]
+[ext_resource type="Script" path="res://scenes/level/levels/003/003_level.gd" id="2_vqhyo"]
+[ext_resource type="PackedScene" uid="uid://fdp25j7mkl71" path="res://scenes/falling_tile/falling_tile.tscn" id="3_teb14"]
+
+[node name="Level_003" instance=ExtResource("1_yxv5c")]
+script = ExtResource("2_vqhyo")
+
+[node name="Platforms" parent="TileLayers" index="0"]
+tile_map_data = PackedByteArray("AAD//xMAAQAMAA4AAAD//xQAAQAMAA4AAAD//xUAAQAMAA4AAAAAAA4AAQAQAAUAAAABAA4AAQAQAAUAAAAbAA4AAQAQAAUAAAAcAA4AAQAQAAUAAAAdAA4AAQAQAAUAAAABAAwAAQAGAAkAAAABAA0AAQAGAAoAAAD//xAAAQASAAoAAAD//w8AAQASAAoAAAD//w4AAQASAAoAAAD//w0AAQASAAoAAAD//wwAAQASAAoAAAD//wsAAQASAAoAAAD//woAAQASAAoAAAD//wkAAQASAAoAAAD//wgAAQASAAoAAAD//wcAAQASAAoAAAD//wYAAQASAAoAAAD//wUAAQASAAoAAAD//wQAAQASAAoAAAD//wMAAQASAAoAAAD//wIAAQASAAoAAAD//wEAAQASAAoAAAD//wAAAQASAAoAAAD/////AQASAAoAAAAeAAAAAQASAAoAAAAeAAEAAQASAAoAAAAeAAIAAQASAAoAAAAeAAMAAQASAAoAAAAeAAQAAQASAAoAAAAeAAUAAQASAAoAAAAeAAYAAQASAAoAAAAeAAcAAQASAAoAAAAeAAgAAQASAAoAAAAeAAkAAQASAAoAAAAeAAoAAQASAAoAAAAeAAsAAQASAAoAAAAeAAwAAQASAAoAAAAeAA0AAQASAAoAAAAeAA4AAQASAAoAAAAeAA8AAQASAAoAAAAeABAAAQASAAoAAAA=")
+
+[node name="Key" parent="." index="3"]
+position = Vector2(232, 192)
+
+[node name="LevelExit" parent="." index="4"]
+position = Vector2(456, 224)
+
+[node name="FallingPlatforms" type="Node" parent="." index="6"]
+
+[node name="FallingTile" parent="FallingPlatforms" index="0" instance=ExtResource("3_teb14")]
+position = Vector2(40, 240)
+
+[node name="FallingTile2" parent="FallingPlatforms" index="1" instance=ExtResource("3_teb14")]
+position = Vector2(56, 240)
+
+[node name="FallingTile3" parent="FallingPlatforms" index="2" instance=ExtResource("3_teb14")]
+position = Vector2(72, 240)
+
+[node name="FallingTile4" parent="FallingPlatforms" index="3" instance=ExtResource("3_teb14")]
+position = Vector2(88, 240)
+
+[node name="FallingTile5" parent="FallingPlatforms" index="4" instance=ExtResource("3_teb14")]
+position = Vector2(104, 240)
+
+[node name="FallingTile6" parent="FallingPlatforms" index="5" instance=ExtResource("3_teb14")]
+position = Vector2(120, 240)
+
+[node name="FallingTile7" parent="FallingPlatforms" index="6" instance=ExtResource("3_teb14")]
+position = Vector2(136, 240)
+
+[node name="FallingTile8" parent="FallingPlatforms" index="7" instance=ExtResource("3_teb14")]
+position = Vector2(152, 240)
+
+[node name="FallingTile9" parent="FallingPlatforms" index="8" instance=ExtResource("3_teb14")]
+position = Vector2(168, 240)
+
+[node name="FallingTile10" parent="FallingPlatforms" index="9" instance=ExtResource("3_teb14")]
+position = Vector2(184, 240)
+
+[node name="FallingTile11" parent="FallingPlatforms" index="10" instance=ExtResource("3_teb14")]
+position = Vector2(200, 240)
+
+[node name="FallingTile12" parent="FallingPlatforms" index="11" instance=ExtResource("3_teb14")]
+position = Vector2(216, 240)
+
+[node name="FallingTile13" parent="FallingPlatforms" index="12" instance=ExtResource("3_teb14")]
+position = Vector2(232, 240)
+
+[node name="FallingTile14" parent="FallingPlatforms" index="13" instance=ExtResource("3_teb14")]
+position = Vector2(248, 240)
+
+[node name="FallingTile15" parent="FallingPlatforms" index="14" instance=ExtResource("3_teb14")]
+position = Vector2(264, 240)
+
+[node name="FallingTile16" parent="FallingPlatforms" index="15" instance=ExtResource("3_teb14")]
+position = Vector2(280, 240)
+
+[node name="FallingTile17" parent="FallingPlatforms" index="16" instance=ExtResource("3_teb14")]
+position = Vector2(296, 240)
+
+[node name="FallingTile18" parent="FallingPlatforms" index="17" instance=ExtResource("3_teb14")]
+position = Vector2(312, 240)
+
+[node name="FallingTile19" parent="FallingPlatforms" index="18" instance=ExtResource("3_teb14")]
+position = Vector2(328, 240)
+
+[node name="FallingTile20" parent="FallingPlatforms" index="19" instance=ExtResource("3_teb14")]
+position = Vector2(344, 240)
+
+[node name="FallingTile21" parent="FallingPlatforms" index="20" instance=ExtResource("3_teb14")]
+position = Vector2(360, 240)
+
+[node name="FallingTile22" parent="FallingPlatforms" index="21" instance=ExtResource("3_teb14")]
+position = Vector2(376, 240)
+
+[node name="FallingTile23" parent="FallingPlatforms" index="22" instance=ExtResource("3_teb14")]
+position = Vector2(392, 240)
+
+[node name="FallingTile24" parent="FallingPlatforms" index="23" instance=ExtResource("3_teb14")]
+position = Vector2(408, 240)
+
+[node name="FallingTile25" parent="FallingPlatforms" index="24" instance=ExtResource("3_teb14")]
+position = Vector2(424, 240)

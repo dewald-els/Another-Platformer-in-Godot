@@ -1,0 +1,87 @@
+[gd_scene load_steps=8 format=3 uid="uid://fdp25j7mkl71"]
+
+[ext_resource type="Texture2D" uid="uid://bpk6nhhxe3648" path="res://scenes/falling_tile/sprites/falling_title.png" id="1_c0iuy"]
+[ext_resource type="Script" path="res://scenes/falling_tile/falling_tile.gd" id="1_n0xlu"]
+
+[sub_resource type="Animation" id="Animation_l6gmu"]
+resource_name = "jiggle"
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals/Sprite2D:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1.36604, 1, 0.870551, 1, 1),
+"update": 0,
+"values": [-0.0872665, 0.0872665, -0.0698132, 0.122173, -0.0872665, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_0oyjj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals/Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nha3g"]
+_data = {
+"RESET": SubResource("Animation_0oyjj"),
+"jiggle": SubResource("Animation_l6gmu")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kjbpg"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ltv1"]
+size = Vector2(16, 18)
+
+[node name="FallingTile" type="StaticBody2D"]
+script = ExtResource("1_n0xlu")
+time_before_falling = 0.25
+
+[node name="FallTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.5
+one_shot = true
+
+[node name="DestroyTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_nha3g")
+}
+
+[node name="Collider2D" type="CollisionShape2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_kjbpg")
+
+[node name="FallingTileArea2D" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FallingTileArea2D"]
+position = Vector2(0, -9)
+shape = SubResource("RectangleShape2D_1ltv1")
+
+[node name="Visuals" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Visuals"]
+position = Vector2(0, -8)
+texture = ExtResource("1_c0iuy")

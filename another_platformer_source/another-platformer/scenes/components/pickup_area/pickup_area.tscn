@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://bp4xqx5e68okr"]
+
+[node name="PickupArea" type="Area2D"]
+collision_layer = 8
+collision_mask = 8
