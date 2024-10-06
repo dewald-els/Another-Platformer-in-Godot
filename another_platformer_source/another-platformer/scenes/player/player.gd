@@ -2,6 +2,7 @@ class_name Player
 extends CharacterBody2D
 
 @onready var animated_sprite: AnimatedSprite2D = %AnimatedSprite
+@onready var health: Health = %Health
 
 
 @export_group("Movement")
@@ -24,8 +25,12 @@ var jump_count: int = 0
 # 1 Unit = 80 = 16px 
 var jump_velocity: float = -(5 * jump_height_in_units * 16)
 
+var _start_position: Vector2
+
 func _ready() -> void:
 	Logger.create("Player._ready: ", "Jump velocity: " + str(jump_velocity))
+	_start_position = global_position
+	health.died.connect(_handle_died)
 
 
 func _physics_process(delta: float) -> void:
@@ -84,6 +89,10 @@ func accelerate(direction: float) -> void:
 func stop() -> void:
 	accelerate(0.0)
 	
+	
+func _handle_died() -> void:
+	Logger.create("Player._handle_died", "resetting to " + str(_start_position))
+	global_position = _start_position
 	
 	
 

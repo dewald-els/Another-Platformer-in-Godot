@@ -56,4 +56,4 @@ func load_scene(screen: Screens, as_child: bool = false) -> void:
 		
 	else:
 		Callable(_load_packed_scene.bind(scene_to_load)).call_deferred()
-		
+	

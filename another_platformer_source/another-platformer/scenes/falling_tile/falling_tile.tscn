@@ -3,6 +3,21 @@
 [ext_resource type="Texture2D" uid="uid://bpk6nhhxe3648" path="res://scenes/falling_tile/sprites/falling_title.png" id="1_c0iuy"]
 [ext_resource type="Script" path="res://scenes/falling_tile/falling_tile.gd" id="1_n0xlu"]
 
+[sub_resource type="Animation" id="Animation_0oyjj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals/Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
 [sub_resource type="Animation" id="Animation_l6gmu"]
 resource_name = "jiggle"
 length = 0.5
@@ -18,21 +33,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1.36604, 1, 0.870551, 1, 1),
 "update": 0,
 "values": [-0.0872665, 0.0872665, -0.0698132, 0.122173, -0.0872665, 0.0]
-}
-
-[sub_resource type="Animation" id="Animation_0oyjj"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Visuals/Sprite2D:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nha3g"]

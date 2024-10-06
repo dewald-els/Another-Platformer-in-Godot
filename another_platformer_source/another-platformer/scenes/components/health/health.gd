@@ -32,8 +32,8 @@ func get_health_perentage() -> float:
 
 func _die() -> void:
 	died.emit()
-	if owner:
-		owner.queue_free()
+	#if owner:
+		#owner.queue_free()
 
 
 func heal(heal_amount: float) -> void:

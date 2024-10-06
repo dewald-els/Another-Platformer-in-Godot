@@ -1,23 +1,47 @@
-[gd_scene load_steps=5 format=3 uid="uid://muio45wgvwim"]
+[gd_scene load_steps=8 format=3 uid="uid://muio45wgvwim"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_r4kqk"]
 [ext_resource type="SpriteFrames" uid="uid://coebh1t8ri1jf" path="res://scenes/player/resources/player_animated_sprite_frames.tres" id="2_emhr1"]
 [ext_resource type="PackedScene" uid="uid://da404b2nox82t" path="res://scenes/components/health/health.tscn" id="2_q5gb0"]
+[ext_resource type="PackedScene" uid="uid://bfnd1tk6vqcnv" path="res://scenes/components/hurtbox/hurtbox.tscn" id="3_tqnlu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hxxsl"]
+radius = 5.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8upfg"]
+radius = 9.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_45njb"]
 size = Vector2(12, 11)
 
 [node name="Player" type="CharacterBody2D"]
-collision_layer = 2
+collision_layer = 22
 script = ExtResource("1_r4kqk")
 acceleration = 200.0
 max_speed = 150
 fall_gravity_multiplier = 1.8
 
-[node name="Components" type="Node" parent="."]
+[node name="Components" type="Node2D" parent="."]
 
 [node name="Health" parent="Components" instance=ExtResource("2_q5gb0")]
+unique_name_in_owner = true
 max_health = 1.0
+
+[node name="Hurtbox" parent="Components" node_paths=PackedStringArray("health") instance=ExtResource("3_tqnlu")]
+collision_layer = 0
+health = NodePath("../Health")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Components/Hurtbox"]
+position = Vector2(0, -5)
+shape = SubResource("CircleShape2D_hxxsl")
+
+[node name="CollectableArea2D" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectableArea2D"]
+position = Vector2(0, -5)
+shape = SubResource("CircleShape2D_8upfg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -5.5)

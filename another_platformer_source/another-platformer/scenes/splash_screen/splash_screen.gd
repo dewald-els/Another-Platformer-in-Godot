@@ -1,3 +1,4 @@
+class_name SplashScreen
 extends CanvasLayer
 
 @onready var splash_timer: Timer = %SplashTimer
@@ -9,3 +10,8 @@ func _ready() -> void:
 
 func _handle_timeout() -> void:
 	SceneManager.load_scene(SceneManager.Screens.MainMenu)
+
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and event.is_pressed():
+		SceneManager.load_scene(SceneManager.Screens.MainMenu)

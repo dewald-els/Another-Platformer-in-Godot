@@ -20,9 +20,6 @@ anchor_mode = 0
 tile_map_data = PackedByteArray(0, 0, 255, 255, 19, 0, 1, 0, 12, 0, 14, 0, 0, 0, 255, 255, 20, 0, 1, 0, 12, 0, 14, 0, 0, 0, 255, 255, 21, 0, 1, 0, 12, 0, 14, 0, 0, 0)
 tile_set = ExtResource("2_kxqed")
 
-[node name="Player" parent="." instance=ExtResource("3_13oa1")]
-position = Vector2(10, 189)
-
 [node name="Key" parent="." instance=ExtResource("4_iqwbr")]
 position = Vector2(96, 104)
 
@@ -30,4 +27,9 @@ position = Vector2(96, 104)
 unique_name_in_owner = true
 position = Vector2(456, 176)
 
+[node name="Player" parent="." instance=ExtResource("3_13oa1")]
+position = Vector2(8, 16)
+
 [node name="Hazards" type="Node" parent="."]
+
+[node name="Notifications" type="Node" parent="."]
