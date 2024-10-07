@@ -3,7 +3,8 @@ extends Node
 enum Screens {
 	MainMenu,
 	Splash,
-	Pause
+	Pause,
+	GameComplete
 }
 
 
@@ -11,6 +12,7 @@ enum Screens {
 @export var _main_menu: PackedScene
 @export var _splash_screen: PackedScene
 @export var _pause_screen: PackedScene
+@export var _game_complete_screen: PackedScene
 
 var _current_level_index: int = 0
 	
@@ -23,7 +25,7 @@ func load_next_level() -> void:
 		Callable(_load_packed_scene.bind(scene)).call_deferred()
 		_current_level_index += 1
 	else:
-		load_scene(Screens.Splash)
+		load_scene(Screens.GameComplete)
 		
 func _load_packed_scene(scene: PackedScene) -> void:
 	get_tree().change_scene_to_packed(scene)
@@ -33,6 +35,9 @@ func load_previous_level() -> void:
 		get_tree().change_scene_to_packed(_levels[_current_level_index - 1])
 		_current_level_index -= 1
 		
+		
+func reset_current_level() -> void:
+	_current_level_index = 0
 		
 func load_scene(screen: Screens, as_child: bool = false) -> void:
 	
@@ -45,6 +50,8 @@ func load_scene(screen: Screens, as_child: bool = false) -> void:
 			scene_to_load = _splash_screen
 		Screens.Pause:
 			scene_to_load = _pause_screen
+		Screens.GameComplete:
+			scene_to_load = _game_complete_screen
 			
 	if as_child:
 		var scene_instance = scene_to_load.instantiate()

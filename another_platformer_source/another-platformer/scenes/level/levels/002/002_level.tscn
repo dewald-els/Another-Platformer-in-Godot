@@ -1,8 +1,12 @@
-[gd_scene load_steps=5 format=4 uid="uid://ckkv2ef64l3ji"]
+[gd_scene load_steps=7 format=4 uid="uid://ckkv2ef64l3ji"]
 
 [ext_resource type="PackedScene" uid="uid://chms2w2ome023" path="res://scenes/level/base_level.tscn" id="1_fo5ql"]
 [ext_resource type="Script" path="res://scenes/level/levels/002/002_level.gd" id="2_nplyn"]
 [ext_resource type="PackedScene" uid="uid://bbkvbpl56ac20" path="res://scenes/notification/notification_trigger.tscn" id="3_r2ux3"]
+[ext_resource type="PackedScene" uid="uid://bppyiw3244apg" path="res://scenes/death_zone/death_zone.tscn" id="3_vtg01"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y7ui4"]
+size = Vector2(416, 12)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f6wov"]
 size = Vector2(32, 16)
@@ -18,6 +22,12 @@ position = Vector2(248, 176)
 
 [node name="Player" parent="." index="4"]
 position = Vector2(10, 128)
+
+[node name="DeathZone" parent="Hazards" index="0" instance=ExtResource("3_vtg01")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hazards/DeathZone" index="0"]
+position = Vector2(32, 4)
+shape = SubResource("RectangleShape2D_y7ui4")
 
 [node name="NotificationTrigger" parent="Notifications" index="0" instance=ExtResource("3_r2ux3")]
 position = Vector2(248, 216)

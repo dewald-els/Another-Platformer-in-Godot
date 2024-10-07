@@ -3,6 +3,7 @@ extends CharacterBody2D
 
 @onready var animated_sprite: AnimatedSprite2D = %AnimatedSprite
 @onready var health: Health = %Health
+@onready var ladder_area_2d: Area2D = %LadderArea2D
 
 
 @export_group("Movement")
@@ -10,6 +11,9 @@ extends CharacterBody2D
 @export var acceleration: float = 5.0
 ## Maximum speed that player can move.
 @export var max_speed: int = 40
+@export var max_ladder_speed: int = 30
+@export var max_climb_speed: int = 40
+
 @export_group("Jump")
 ## How many blocks (16 pixels) should you jumps
 @export var jump_height_in_units: float = 3.0
@@ -21,6 +25,7 @@ extends CharacterBody2D
 @export var max_jumps: int = 2
 
 
+var is_on_ladder: bool = false
 var jump_count: int = 0
 # 1 Unit = 80 = 16px 
 var jump_velocity: float = -(5 * jump_height_in_units * 16)
@@ -31,6 +36,8 @@ func _ready() -> void:
 	Logger.create("Player._ready: ", "Jump velocity: " + str(jump_velocity))
 	_start_position = global_position
 	health.died.connect(_handle_died)
+	ladder_area_2d.body_entered.connect(_handle_ladder_entered)
+	ladder_area_2d.body_exited.connect(_handle_ladder_exit)
 
 
 func _physics_process(delta: float) -> void:
@@ -39,15 +46,22 @@ func _physics_process(delta: float) -> void:
 	
 	jump()
 	
-	var direction = get_movement_vector()
+	var direction = get_movement_direction()
 	
 	if direction:
 		accelerate(direction)
 	else:
 		stop()
+		
+	var climb_direction = get_climb_direction()
+	
+	if climb_direction:
+		climb(climb_direction)
+	elif is_on_ladder:
+		stop_climb()
 
 	move_and_slide()
-	
+
 	play_animation()
 	
 
@@ -63,11 +77,23 @@ func play_animation() -> void:
 		animated_sprite.play("jump")
 	
 
-func get_movement_vector() -> float:
+func get_movement_direction() -> float:
 	var direction := Input.get_axis("move_left", "move_right")
 	return direction
+	
 
+func get_climb_direction() -> float:
+	if not is_on_ladder:
+		return 0
+		
+	var direction := Input.get_axis("move_up", "move_down")
+	return direction
+	
+	
 func jump() -> void:
+	if is_on_ladder:
+		return 
+	
 	if is_on_floor():
 		jump_count = 0
 	
@@ -76,7 +102,7 @@ func jump() -> void:
 		jump_count += 1
 	
 func apply_gravity(delta: float) -> void:
-	if not is_on_floor():
+	if not is_on_floor() and not is_on_ladder:
 		if Input.is_action_pressed("jump") and jump_count <= 1:
 			velocity.y += get_gravity().y * jump_gravity_multiplier * delta
 		else:
@@ -84,16 +110,35 @@ func apply_gravity(delta: float) -> void:
 
 func accelerate(direction: float) -> void:
 	var target_velocity: float = direction * max_speed
+	if is_on_ladder:
+		target_velocity = direction * max_ladder_speed
 	velocity.x = lerp(velocity.x, target_velocity, 1 - exp(-acceleration * get_process_delta_time()))
+	
+func climb(direction: float) -> void:
+	if not is_on_ladder:
+		return
+		
+	var target_velocity: float = direction * max_climb_speed
+	velocity.y = lerp(velocity.y, target_velocity, 1 - exp(-acceleration * get_process_delta_time()))
 
 func stop() -> void:
 	accelerate(0.0)
+	
+func stop_climb() -> void:
+	var target_velocity: float = 0.0 * max_speed
+	velocity.y = lerp(velocity.y, target_velocity, 1 - exp(-acceleration * get_process_delta_time()))
 	
 	
 func _handle_died() -> void:
 	Logger.create("Player._handle_died", "resetting to " + str(_start_position))
 	global_position = _start_position
 	
-	
 
+func _handle_ladder_exit(_other_body: Node2D) -> void:
+	Logger.create("Player._handle_ladder_exit", _other_body.name)
+	is_on_ladder = false
+
+func _handle_ladder_entered(_other_body: Node2D) -> void:
+	Logger.create("Player._handle_ladder_entered", _other_body.name)
+	is_on_ladder = true
 	

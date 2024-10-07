@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://chms2w2ome023"]
+[gd_scene load_steps=7 format=3 uid="uid://chms2w2ome023"]
 
 [ext_resource type="Script" path="res://scenes/level/base_level.gd" id="1_os02y"]
 [ext_resource type="TileSet" uid="uid://bsvdughxw32n3" path="res://resources/tilesets/black.tres" id="2_kxqed"]
 [ext_resource type="PackedScene" uid="uid://muio45wgvwim" path="res://scenes/player/player.tscn" id="3_13oa1"]
+[ext_resource type="TileSet" uid="uid://5aa3jayy60n0" path="res://resources/tilesets/ladders.tres" id="3_vsrul"]
 [ext_resource type="PackedScene" uid="uid://cs7dfy6uywq7w" path="res://scenes/key/key.tscn" id="4_iqwbr"]
 [ext_resource type="PackedScene" uid="uid://c3vtwuo0vnhkm" path="res://scenes/level_exit/level_exit.tscn" id="5_72gju"]
 
@@ -19,6 +20,9 @@ anchor_mode = 0
 [node name="Platforms" type="TileMapLayer" parent="TileLayers"]
 tile_map_data = PackedByteArray(0, 0, 255, 255, 19, 0, 1, 0, 12, 0, 14, 0, 0, 0, 255, 255, 20, 0, 1, 0, 12, 0, 14, 0, 0, 0, 255, 255, 21, 0, 1, 0, 12, 0, 14, 0, 0, 0)
 tile_set = ExtResource("2_kxqed")
+
+[node name="Ladders" type="TileMapLayer" parent="TileLayers"]
+tile_set = ExtResource("3_vsrul")
 
 [node name="Key" parent="." instance=ExtResource("4_iqwbr")]
 position = Vector2(96, 104)
