@@ -7,7 +7,7 @@ func _ready() -> void:
 	area_entered.connect(_on_area_entered)
 
 
-func _on_area_entered(body: Area2D) -> void:
+func _on_area_entered(_other_body: Area2D) -> void:
 	Logger.create("_on_body_entered", "collected the key")
 	KeyManager.collect_key()
 	queue_free()

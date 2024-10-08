@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://c1oie8mhxh2n"]
+
+[ext_resource type="Script" path="res://scenes/slamming_column/slamming_column.gd" id="1_px72s"]
+[ext_resource type="TileSet" uid="uid://ldqkoxhkv4fw" path="res://resources/tilesets/hazards.tres" id="2_3ug7f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m5r15"]
+size = Vector2(16, 44)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t4sq6"]
+size = Vector2(14, 4)
+
+[node name="SlammingColumn" type="StaticBody2D"]
+script = ExtResource("1_px72s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-8, -26)
+shape = SubResource("RectangleShape2D_m5r15")
+
+[node name="DamageArea2D" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 4
+collision_mask = 4
+
+[node name="DamageAreaCollision" type="CollisionShape2D" parent="DamageArea2D"]
+unique_name_in_owner = true
+position = Vector2(-8, -2)
+shape = SubResource("RectangleShape2D_t4sq6")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray(0, 0, 255, 255, 253, 255, 0, 0, 18, 0, 9, 0, 0, 0, 255, 255, 254, 255, 0, 0, 18, 0, 10, 0, 0, 0, 255, 255, 255, 255, 0, 0, 18, 0, 11, 0, 0, 0)
+tile_set = ExtResource("2_3ug7f")
+
+[node name="WithdrawDelayTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
+
+[node name="DelayTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
