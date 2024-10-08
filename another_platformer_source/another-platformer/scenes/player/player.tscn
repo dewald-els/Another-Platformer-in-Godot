@@ -17,7 +17,7 @@ size = Vector2(6, 9)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_45njb"]
 size = Vector2(12, 11)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_layer = 22
 script = ExtResource("1_r4kqk")
 acceleration = 200.0

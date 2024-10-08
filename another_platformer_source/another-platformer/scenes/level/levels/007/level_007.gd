@@ -1,9 +1,8 @@
-class_name Level_003
 extends BaseLevel
 
-
 func _ready() -> void:
-	SceneManager.set_current_level_index(2)
+	
+	SceneManager.set_current_level_index(6)
 	
 	var player = get_tree().get_first_node_in_group("player") as Player
 	if not player:
