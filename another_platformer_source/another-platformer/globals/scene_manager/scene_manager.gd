@@ -40,7 +40,7 @@ func reset_current_level() -> void:
 	_current_level_index = 0
 	
 
-func set_current_level_index(index: int) -> void:
+func set_next_level_index(index: int) -> void:
 	if index > _levels.size():
 		Logger.create("SceneManager.set_current_level_index", "The index " + str(index) + " is greater than the number of levels " + str(_levels.size()))
 	_current_level_index = index

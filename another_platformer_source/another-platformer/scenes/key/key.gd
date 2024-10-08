@@ -4,6 +4,7 @@ extends Area2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Logger.create("Key._ready", "Exit setup")
 	area_entered.connect(_on_area_entered)
 
 

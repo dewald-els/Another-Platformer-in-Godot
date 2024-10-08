@@ -1,10 +1,9 @@
 class_name LevelExit
 extends Node2D
+
+
 @onready var animated_sprite: AnimatedSprite2D = %AnimatedSprite
 @onready var exit_area_2d: Area2D = %ExitArea2D
-
-
-signal exit_reached
 
 
 func _ready() -> void:
@@ -14,6 +13,8 @@ func _on_exit_entered(body: Node2D) -> void:
 	if not KeyManager.has_key():
 		Logger.create("LevelExit._on_exit_entered", "No Key yet")
 		return
+
+	Logger.create("LevelExit._on_exit_entered", "Has Key")
 	
 	if body is Player:
-		exit_reached.emit()
+		SignalBus.emit_exit_reached()

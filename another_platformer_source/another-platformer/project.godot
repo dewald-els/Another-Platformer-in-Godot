@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 Logger="*res://globals/logger/logger.tscn"
 KeyManager="*res://globals/key_manager/key_manager.tscn"
 SceneManager="*res://globals/scene_manager/scene_manager.tscn"
+SignalBus="*res://globals/signal_bus/signal_bus.tscn"
 
 [display]
 
