@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dhvsfayyk24d8"]
+[gd_scene load_steps=3 format=3 uid="uid://dhvsfayyk24d8"]
 
 [ext_resource type="Script" path="res://scenes/main_menu/main_menu.gd" id="1_baqe5"]
+[ext_resource type="PackedScene" uid="uid://cwiad2an6cb60" path="res://scenes/ui/button/game_button.tscn" id="2_degby"]
 
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource("1_baqe5")
@@ -30,17 +31,40 @@ offset_right = 76.0
 offset_bottom = 47.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 32
 
-[node name="Label" type="Label" parent="MarginContainer/Panel/VBoxContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/Panel/VBoxContainer"]
 layout_mode = 2
-text = "Another Platformer"
 
-[node name="PlayButton" type="Button" parent="MarginContainer/Panel/VBoxContainer"]
+[node name="Label" type="Label" parent="MarginContainer/Panel/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Another Platformer"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="MarginContainer/Panel/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Run, Jump and well... that's it"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="PlayButton" parent="MarginContainer/Panel/VBoxContainer/VBoxContainer" instance=ExtResource("2_degby")]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 4
 text = "Play"
 
-[node name="QuitButton" type="Button" parent="MarginContainer/Panel/VBoxContainer"]
+[node name="OptionsButton" parent="MarginContainer/Panel/VBoxContainer/VBoxContainer" instance=ExtResource("2_degby")]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 4
+text = "Options"
+
+[node name="QuitButton" parent="MarginContainer/Panel/VBoxContainer/VBoxContainer" instance=ExtResource("2_degby")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
 text = "Quit"

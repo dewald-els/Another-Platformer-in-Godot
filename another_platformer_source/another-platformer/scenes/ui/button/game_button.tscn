@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://cwiad2an6cb60"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tuh52"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1amd6"]
+bg_color = Color(0.93408, 0.93408, 0.93408, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_24l1b"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+
+[node name="GameButton" type="Button"]
+clip_contents = true
+custom_minimum_size = Vector2(96, 32)
+offset_right = 8.0
+offset_bottom = 8.0
+theme_override_colors/font_hover_color = Color(0.0430392, 0.0430392, 0.0430392, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/focus = SubResource("StyleBoxFlat_tuh52")
+theme_override_styles/hover = SubResource("StyleBoxFlat_1amd6")
+theme_override_styles/normal = SubResource("StyleBoxFlat_24l1b")
+text = "My Button"
