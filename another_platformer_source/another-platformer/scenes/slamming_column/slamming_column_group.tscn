@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmr48hdgnr116"]
+
+[ext_resource type="Script" path="res://scenes/slamming_column/slamming_column_group.gd" id="1_58yc3"]
+
+[node name="SlammingColumnGroup" type="Node2D"]
+script = ExtResource("1_58yc3")
+
+[node name="StartDelayTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true

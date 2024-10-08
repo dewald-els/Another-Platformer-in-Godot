@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=4 uid="uid://sytw1jeflcnx"]
+[gd_scene load_steps=5 format=4 uid="uid://sytw1jeflcnx"]
 
 [ext_resource type="PackedScene" uid="uid://chms2w2ome023" path="res://scenes/level/base_level.tscn" id="1_ffkom"]
 [ext_resource type="Script" path="res://scenes/level/levels/006/level_006.gd" id="2_ev516"]
 [ext_resource type="PackedScene" uid="uid://c1oie8mhxh2n" path="res://scenes/slamming_column/slamming_column.tscn" id="3_5o7lw"]
+[ext_resource type="PackedScene" uid="uid://bmr48hdgnr116" path="res://scenes/slamming_column/slamming_column_group.tscn" id="3_m34hr"]
 
 [node name="Level_006" instance=ExtResource("1_ffkom")]
 script = ExtResource("2_ev516")
@@ -19,29 +20,19 @@ position = Vector2(456, 240)
 [node name="Player" parent="." index="4"]
 position = Vector2(16, 80)
 
-[node name="SlammingColumn" parent="Hazards" index="0" instance=ExtResource("3_5o7lw")]
-position = Vector2(176, 190)
-withdraw_duration = 1.0
-withdraw_delay = 1.25
-slam_speed = 0.275
-
-[node name="SlammingColumn2" parent="Hazards" index="1" instance=ExtResource("3_5o7lw")]
-position = Vector2(240, 190)
-start_delay = 0.25
-withdraw_duration = 1.0
-withdraw_delay = 1.0
-slam_speed = 0.275
-
-[node name="SlammingColumn3" parent="Hazards" index="2" instance=ExtResource("3_5o7lw")]
-position = Vector2(304, 190)
-start_delay = 0.5
-withdraw_duration = 1.0
-withdraw_delay = 0.75
-slam_speed = 0.275
-
-[node name="SlammingColumn4" parent="Hazards" index="3" instance=ExtResource("3_5o7lw")]
-position = Vector2(368, 190)
-start_delay = 0.75
-withdraw_duration = 1.0
+[node name="SlammingColumnGroup" parent="Hazards" index="0" instance=ExtResource("3_m34hr")]
+withdraw_duration = 0.4
 withdraw_delay = 0.5
-slam_speed = 0.275
+slam_pattern = "OnSlam"
+
+[node name="SlammingColumn" parent="Hazards/SlammingColumnGroup" index="1" instance=ExtResource("3_5o7lw")]
+position = Vector2(176, 190)
+
+[node name="SlammingColumn2" parent="Hazards/SlammingColumnGroup" index="2" instance=ExtResource("3_5o7lw")]
+position = Vector2(240, 190)
+
+[node name="SlammingColumn3" parent="Hazards/SlammingColumnGroup" index="3" instance=ExtResource("3_5o7lw")]
+position = Vector2(304, 190)
+
+[node name="SlammingColumn4" parent="Hazards/SlammingColumnGroup" index="4" instance=ExtResource("3_5o7lw")]
+position = Vector2(368, 190)
