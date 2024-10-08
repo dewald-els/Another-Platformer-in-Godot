@@ -6,7 +6,7 @@ extends StaticBody2D
 @onready var damage_area_collision: CollisionShape2D = %DamageAreaCollision
 
 
-const COLUMN_HEIGHT: int = 48
+const COLUMN_HEIGHT: int = 49 # + 1 Pixel for hiding behind Platforms
 
 @export var start_delay: float = 0.01
 @export var withdraw_duration: float = 4.0
