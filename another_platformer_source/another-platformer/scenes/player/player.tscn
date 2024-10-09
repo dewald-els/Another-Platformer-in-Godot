@@ -18,7 +18,7 @@ size = Vector2(6, 9)
 size = Vector2(12, 11)
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
-collision_layer = 22
+collision_layer = 18
 script = ExtResource("1_r4kqk")
 acceleration = 200.0
 max_speed = 150
@@ -33,7 +33,6 @@ unique_name_in_owner = true
 max_health = 1.0
 
 [node name="Hurtbox" parent="Components" node_paths=PackedStringArray("health") instance=ExtResource("3_tqnlu")]
-collision_layer = 0
 health = NodePath("../Health")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Components/Hurtbox"]
