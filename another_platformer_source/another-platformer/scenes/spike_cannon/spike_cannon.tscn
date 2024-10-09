@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bbttbe6gdeovv"]
+
+[ext_resource type="Script" path="res://scenes/spike_cannon/spike_cannon.gd" id="1_785w2"]
+[ext_resource type="PackedScene" uid="uid://c3d6oqda7xsyi" path="res://scenes/spike_cannon/spike_cannon_bullet/spike_cannon_bullet.tscn" id="2_n5em8"]
+
+[node name="SpikeCannon" type="Node2D"]
+script = ExtResource("1_785w2")
+bullet_scene = ExtResource("2_n5em8")
+
+[node name="ShootTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+autostart = true
+
+[node name="BulletOrigin" type="Marker2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
