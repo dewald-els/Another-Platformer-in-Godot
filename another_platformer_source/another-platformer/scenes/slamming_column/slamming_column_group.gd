@@ -40,7 +40,7 @@ func _find_columns_in_group() -> void:
 		column_index += 1
 
 
-func _handle_withdraw_complete(index: int) -> void:
+func _handle_withdraw_complete(_index: int) -> void:
 	if slam_pattern == "Wait":
 		_slam_next_column()
 	
