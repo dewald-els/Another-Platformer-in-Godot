@@ -4,6 +4,7 @@ extends CharacterBody2D
 @onready var animated_sprite: AnimatedSprite2D = %AnimatedSprite
 @onready var health: Health = %Health
 @onready var ladder_area_2d: Area2D = %LadderArea2D
+@onready var box_push_area_2d: Area2D = %BoxPushArea2D
 
 
 @export_group("Movement")
@@ -11,6 +12,7 @@ extends CharacterBody2D
 @export var acceleration: float = 5.0
 ## Maximum speed that player can move.
 @export var max_speed: int = 40
+@export var max_push_speed: int = 25
 @export var max_ladder_speed: int = 30
 @export var max_climb_speed: int = 40
 
@@ -25,12 +27,17 @@ extends CharacterBody2D
 @export var max_jumps: int = 2
 
 
+const PUSH_FORCE: float = 1.5
+const MIN_PUSH_FORCE: float = 0.15
+
+
+var is_pushing_body: bool = false
 var is_on_ladder: bool = false
 var jump_count: int = 0
 # 1 Unit = 80 = 16px 
 var jump_velocity: float = -(5 * jump_height_in_units * 16)
-
 var _start_position: Vector2
+var _allowed_to_move: bool = true
 
 func _ready() -> void:
 	Logger.create("Player._ready: ", "Jump velocity: " + str(jump_velocity))
@@ -38,11 +45,17 @@ func _ready() -> void:
 	health.died.connect(_handle_died)
 	ladder_area_2d.body_entered.connect(_handle_ladder_entered)
 	ladder_area_2d.body_exited.connect(_handle_ladder_exit)
+	SignalBus.pause_player.connect(_handle_pause_player)
+	box_push_area_2d.body_entered.connect(_handle_box_entered)
+	box_push_area_2d.body_exited.connect(_handle_box_exited)
 
 
 func _physics_process(delta: float) -> void:
 	
 	apply_gravity(delta)
+	
+	if _allowed_to_move == false:
+		return
 	
 	jump()
 	
@@ -109,9 +122,13 @@ func apply_gravity(delta: float) -> void:
 			velocity.y += get_gravity().y * fall_gravity_multiplier * delta
 
 func accelerate(direction: float) -> void:
+	
 	var target_velocity: float = direction * max_speed
 	if is_on_ladder:
 		target_velocity = direction * max_ladder_speed
+	if is_pushing_body:
+		target_velocity = direction * max_push_speed
+		
 	velocity.x = lerp(velocity.x, target_velocity, 1 - exp(-acceleration * get_process_delta_time()))
 	
 func climb(direction: float) -> void:
@@ -142,3 +159,12 @@ func _handle_ladder_entered(_other_body: Node2D) -> void:
 	Logger.create("Player._handle_ladder_entered", _other_body.name)
 	is_on_ladder = true
 	
+func _handle_pause_player() -> void:
+	animated_sprite.pause()
+	_allowed_to_move = false
+	
+func _handle_box_entered(_other_body: Node2D) -> void:
+	is_pushing_body = true
+	
+func _handle_box_exited(_other_body: Node2D) -> void:
+	is_pushing_body = false

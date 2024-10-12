@@ -43,3 +43,5 @@ position = Vector2(8, 16)
 [node name="Notifications" type="Node" parent="."]
 
 [node name="Projectiles" type="Node" parent="." groups=["projectiles"]]
+
+[node name="Interactions" type="Node" parent="."]

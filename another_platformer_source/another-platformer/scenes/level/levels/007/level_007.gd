@@ -11,6 +11,5 @@ func _ready() -> void:
 		
 	
 
-
 func _handle_player_died() -> void:
 	get_tree().reload_current_scene()

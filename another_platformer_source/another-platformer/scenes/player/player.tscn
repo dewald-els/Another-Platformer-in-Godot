@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://muio45wgvwim"]
+[gd_scene load_steps=10 format=3 uid="uid://muio45wgvwim"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_r4kqk"]
 [ext_resource type="SpriteFrames" uid="uid://coebh1t8ri1jf" path="res://scenes/player/resources/player_animated_sprite_frames.tres" id="2_emhr1"]
@@ -14,11 +14,16 @@ radius = 9.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t3jq2"]
 size = Vector2(6, 9)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_3uteq"]
+radius = 6.0
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_45njb"]
 size = Vector2(12, 11)
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
+z_index = 1
 collision_layer = 18
+collision_mask = 65
 script = ExtResource("1_r4kqk")
 acceleration = 200.0
 max_speed = 150
@@ -55,6 +60,15 @@ collision_mask = 32
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LadderArea2D"]
 position = Vector2(0, -4.5)
 shape = SubResource("RectangleShape2D_t3jq2")
+
+[node name="BoxPushArea2D" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 64
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoxPushArea2D"]
+position = Vector2(0, -6)
+shape = SubResource("CircleShape2D_3uteq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -5.5)

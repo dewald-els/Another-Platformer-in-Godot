@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://c3vtwuo0vnhkm"]
+[gd_scene load_steps=12 format=3 uid="uid://c3vtwuo0vnhkm"]
 
 [ext_resource type="Script" path="res://scenes/level_exit/level_exit.gd" id="1_6i88b"]
 [ext_resource type="Texture2D" uid="uid://cdkncthxs18gr" path="res://scenes/level_exit/sprites/idle.png" id="2_0ryyh"]
 [ext_resource type="Texture2D" uid="uid://bx408kuoqa0q" path="res://scenes/level_exit/sprites/open_01.png" id="3_48puh"]
 [ext_resource type="Texture2D" uid="uid://c2kiyekc7h7xk" path="res://scenes/level_exit/sprites/open_02.png" id="4_dcnhy"]
+[ext_resource type="Texture2D" uid="uid://r5j16a8joctg" path="res://scenes/level_exit/sprites/open_03.png" id="5_adu1g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1fpy5"]
 size = Vector2(16, 16)
@@ -18,6 +19,10 @@ region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r2bmv"]
 atlas = ExtResource("4_dcnhy")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lhmam"]
+atlas = ExtResource("5_adu1g")
 region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_i3xrv"]
@@ -36,10 +41,13 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_r2bmv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lhmam")
 }],
 "loop": false,
 "name": &"open",
-"speed": 5.0
+"speed": 4.0
 }]
 
 [node name="LevelExit" type="Node2D"]
@@ -58,5 +66,7 @@ shape = SubResource("RectangleShape2D_1fpy5")
 unique_name_in_owner = true
 position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_i3xrv")
-animation = &"idle"
+animation = &"open"
 autoplay = "idle"
+frame = 2
+frame_progress = 1.0

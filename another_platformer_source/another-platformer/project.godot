@@ -113,6 +113,7 @@ cancel={
 2d_physics/layer_4="collect"
 2d_physics/layer_5="notifications"
 2d_physics/layer_6="ladders"
+2d_physics/layer_7="boxes"
 
 [rendering]
 

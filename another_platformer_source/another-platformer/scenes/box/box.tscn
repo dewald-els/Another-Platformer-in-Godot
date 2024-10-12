@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://daphcqiykrwe3"]
+
+[ext_resource type="Texture2D" uid="uid://b8vaonhcgqc8f" path="res://assets/tilemaps/monochrome_tilemap_transparent_packed.png" id="1_4uhuh"]
+[ext_resource type="Script" path="res://scenes/box/box.gd" id="1_ufug8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ep02e"]
+size = Vector2(14, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qu28d"]
+size = Vector2(16, 13)
+
+[node name="Box" type="StaticBody2D"]
+collision_layer = 64
+collision_mask = 67
+collision_priority = 5.0
+script = ExtResource("1_ufug8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -7)
+shape = SubResource("RectangleShape2D_ep02e")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -7)
+texture = ExtResource("1_4uhuh")
+region_enabled = true
+region_rect = Rect2(145, 33, 14, 14)
+
+[node name="PushingArea2D" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 66
+collision_mask = 67
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PushingArea2D"]
+position = Vector2(0, -6.5)
+shape = SubResource("RectangleShape2D_qu28d")

@@ -17,4 +17,7 @@ func _on_exit_entered(body: Node2D) -> void:
 	Logger.create("LevelExit._on_exit_entered", "Has Key")
 	
 	if body is Player:
+		SignalBus.emit_pause_player()
+		animated_sprite.play("open")
+		await animated_sprite.animation_finished
 		SignalBus.emit_exit_reached()
