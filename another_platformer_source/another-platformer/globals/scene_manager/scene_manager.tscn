@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bfgi4sngd2i5l"]
+[gd_scene load_steps=15 format=3 uid="uid://bfgi4sngd2i5l"]
 
 [ext_resource type="Script" path="res://globals/scene_manager/scene_manager.gd" id="1_0erh0"]
 [ext_resource type="PackedScene" uid="uid://bhtxnc0j2q4n3" path="res://scenes/level/levels/001/001_level.tscn" id="2_8aqvq"]
@@ -13,10 +13,11 @@
 [ext_resource type="PackedScene" uid="uid://dn5rm2072edol" path="res://scenes/level/levels/007/level_007.tscn" id="8_xmw27"]
 [ext_resource type="PackedScene" uid="uid://c5tx7p4yqutfe" path="res://scenes/level/levels/008/level_008.tscn" id="9_2j0hl"]
 [ext_resource type="PackedScene" uid="uid://cj4emw7ikbyi2" path="res://scenes/level/levels/009/level_009.tscn" id="10_lqaj2"]
+[ext_resource type="PackedScene" uid="uid://xxrgkoy7xuw8" path="res://scenes/level/levels/010/level_010.tscn" id="11_8yky5"]
 
 [node name="SceneManager" type="Node"]
 script = ExtResource("1_0erh0")
-_levels = Array[PackedScene]([ExtResource("2_8aqvq"), ExtResource("3_dgrkr"), ExtResource("6_mq57w"), ExtResource("5_evvt5"), ExtResource("6_h1rh3"), ExtResource("7_fwgo2"), ExtResource("8_xmw27"), ExtResource("9_2j0hl"), ExtResource("10_lqaj2")])
+_levels = Array[PackedScene]([ExtResource("2_8aqvq"), ExtResource("3_dgrkr"), ExtResource("6_mq57w"), ExtResource("5_evvt5"), ExtResource("6_h1rh3"), ExtResource("7_fwgo2"), ExtResource("8_xmw27"), ExtResource("9_2j0hl"), ExtResource("10_lqaj2"), ExtResource("11_8yky5")])
 _main_menu = ExtResource("2_84rf0")
 _splash_screen = ExtResource("3_qlxxm")
 _game_complete_screen = ExtResource("8_uhp3e")
