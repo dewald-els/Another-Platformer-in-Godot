@@ -5,6 +5,7 @@ extends Node2D
 @onready var platform_body_2d: CharacterBody2D = %PlatformBody2D
 @onready var object_detection_area_2d: Area2D = %ObjectDetectionArea2D
 
+@export var lift_door: LiftDoor
 @export var move_speed: float = 30.0
 @export var max_distance: float = 100.0
 
@@ -26,12 +27,16 @@ func _distance_travelled() -> float:
 func _physics_process(_delta: float) -> void:
 	if object_is_on_platform and _distance_travelled() < max_distance:
 		platform_body_2d.velocity.y = move_speed
-		platform_body_2d.move_and_slide()
-	elif not object_is_on_platform and _distance_travelled() > 0:
+	elif not object_is_on_platform and _distance_travelled() > 0.01:
 		platform_body_2d.velocity.y = -move_speed
-		platform_body_2d.move_and_slide()
 	else:
-		platform_body_2d.velocity.y = 0
+		print("Stop Moving!")
+		platform_body_2d.velocity.y = 0.0
+		
+	if lift_door:
+		lift_door.velocity.y = -platform_body_2d.velocity.y
+				
+	platform_body_2d.move_and_slide()
 
 func _handle_object_exited(_other_body: Node2D) -> void:
 	total_objects_on_platform -= 1

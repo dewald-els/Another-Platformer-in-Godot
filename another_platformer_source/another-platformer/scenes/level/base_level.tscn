@@ -19,6 +19,7 @@ anchor_mode = 0
 [node name="TileLayers" type="Node2D" parent="."]
 
 [node name="Platforms" type="TileMapLayer" parent="TileLayers"]
+z_index = 1
 tile_map_data = PackedByteArray(0, 0, 255, 255, 19, 0, 1, 0, 12, 0, 14, 0, 0, 0, 255, 255, 20, 0, 1, 0, 12, 0, 14, 0, 0, 0, 255, 255, 21, 0, 1, 0, 12, 0, 14, 0, 0, 0)
 tile_set = ExtResource("2_kxqed")
 
