@@ -11,6 +11,8 @@ extends Node2D
 var starting_position: Vector2
 var object_is_on_platform: bool = false
 
+var total_objects_on_platform: int = 0
+
 
 func _ready() -> void:
 	starting_position = platform_body_2d.global_position
@@ -19,25 +21,24 @@ func _ready() -> void:
 
 func _distance_travelled() -> float:
 	var distance_travelled = abs(platform_body_2d.global_position.y) - abs(starting_position.y)
-	Logger.create("Lift.global_position", str(global_position))
 	return distance_travelled
 
 func _physics_process(_delta: float) -> void:
 	if object_is_on_platform and _distance_travelled() < max_distance:
-		Logger.create("Lift._physics_process", "Move down..")
 		platform_body_2d.velocity.y = move_speed
 		platform_body_2d.move_and_slide()
 	elif not object_is_on_platform and _distance_travelled() > 0:
-		Logger.create("Lift._physics_process", "Not On platform, and not at start position")
 		platform_body_2d.velocity.y = -move_speed
 		platform_body_2d.move_and_slide()
 	else:
 		platform_body_2d.velocity.y = 0
 
 func _handle_object_exited(_other_body: Node2D) -> void:
-	Logger.create("Lift._handle_object_exited", "Other Body: " + _other_body.name)
-	object_is_on_platform = false
+	total_objects_on_platform -= 1
+	if total_objects_on_platform == 0:
+		object_is_on_platform = false
+	
 
 func _handle_object_entered(_other_body: Node2D) -> void:
-	Logger.create("Lift._handle_object_entered", "Other Body: " + _other_body.name)
+	total_objects_on_platform += 1
 	object_is_on_platform = true

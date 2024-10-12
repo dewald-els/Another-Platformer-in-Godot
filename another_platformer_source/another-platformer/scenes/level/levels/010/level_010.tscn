@@ -21,7 +21,8 @@ position = Vector2(456, 240)
 position = Vector2(152, 144)
 
 [node name="Lift" parent="Interactions" index="0" instance=ExtResource("3_geeb7")]
-position = Vector2(224, 200)
+position = Vector2(216, 160)
+max_distance = 20.0
 
 [node name="Box" parent="Interactions" index="1" instance=ExtResource("4_53rjh")]
-position = Vector2(176, 144)
+position = Vector2(176, 8)

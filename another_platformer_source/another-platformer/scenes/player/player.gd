@@ -82,7 +82,7 @@ func play_animation() -> void:
 	var move_speed = abs(velocity.x)
 
 	if is_on_floor():
-		if move_speed > 0.1:
+		if move_speed > 0.1 or is_pushing_body:
 			animated_sprite.play("run")
 		else:
 			animated_sprite.play("idle")
