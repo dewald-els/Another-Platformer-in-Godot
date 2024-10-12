@@ -30,7 +30,6 @@ func _physics_process(_delta: float) -> void:
 	elif not object_is_on_platform and _distance_travelled() > 0.01:
 		platform_body_2d.velocity.y = -move_speed
 	else:
-		print("Stop Moving!")
 		platform_body_2d.velocity.y = 0.0
 		
 	if lift_door:

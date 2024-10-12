@@ -27,7 +27,7 @@ region_rect = Rect2(145, 33, 14, 14)
 
 [node name="PushingArea2D" type="Area2D" parent="."]
 unique_name_in_owner = true
-collision_layer = 66
+collision_layer = 64
 collision_mask = 67
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PushingArea2D"]

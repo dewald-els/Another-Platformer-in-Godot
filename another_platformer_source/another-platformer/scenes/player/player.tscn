@@ -14,8 +14,8 @@ radius = 9.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t3jq2"]
 size = Vector2(6, 9)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_3uteq"]
-radius = 6.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mm1j3"]
+size = Vector2(13.7746, 7.91807)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_45njb"]
 size = Vector2(12, 11)
@@ -63,18 +63,19 @@ shape = SubResource("RectangleShape2D_t3jq2")
 
 [node name="BoxPushArea2D" type="Area2D" parent="."]
 unique_name_in_owner = true
-collision_layer = 64
+collision_layer = 0
 collision_mask = 64
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BoxPushArea2D"]
-position = Vector2(0, -6)
-shape = SubResource("CircleShape2D_3uteq")
+position = Vector2(-0.005126, -4.97525)
+shape = SubResource("RectangleShape2D_mm1j3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -5.5)
 shape = SubResource("RectangleShape2D_45njb")
 
 [node name="Visuals" type="Node2D" parent="."]
+unique_name_in_owner = true
 position = Vector2(0, -8)
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="Visuals"]

@@ -5,7 +5,7 @@ extends CharacterBody2D
 @onready var health: Health = %Health
 @onready var ladder_area_2d: Area2D = %LadderArea2D
 @onready var box_push_area_2d: Area2D = %BoxPushArea2D
-
+@onready var visuals: Node2D = %Visuals
 
 @export_group("Movement")
 ## How quickly the player can get to the maximum speed.
@@ -74,14 +74,15 @@ func _physics_process(delta: float) -> void:
 		stop_climb()
 
 	move_and_slide()
-
 	play_animation()
+	flip_player(direction)
 	
 
 func play_animation() -> void:
 	var move_speed = abs(velocity.x)
 
 	if is_on_floor():
+		#print("Is pushing?", str(is_pushing_body))
 		if move_speed > 0.1 or is_pushing_body:
 			animated_sprite.play("run")
 		else:
@@ -90,10 +91,16 @@ func play_animation() -> void:
 		animated_sprite.play("jump")
 	
 
+
 func get_movement_direction() -> float:
 	var direction := Input.get_axis("move_left", "move_right")
 	return direction
 	
+func flip_player(direction: float) -> void:
+	var move_sign: float = sign(direction)
+	
+	if move_sign != 0:
+		visuals.scale = Vector2(move_sign, 1)
 
 func get_climb_direction() -> float:
 	if not is_on_ladder:
@@ -164,6 +171,7 @@ func _handle_pause_player() -> void:
 	_allowed_to_move = false
 	
 func _handle_box_entered(_other_body: Node2D) -> void:
+	print("Pushing now?")
 	is_pushing_body = true
 	
 func _handle_box_exited(_other_body: Node2D) -> void:
