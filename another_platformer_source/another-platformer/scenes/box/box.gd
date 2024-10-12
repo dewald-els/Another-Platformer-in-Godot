@@ -14,7 +14,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	var movement: Vector2 = movement_speed * delta * Vector2.RIGHT
-	print("box move" + str(movement))
+	print("box move" + str(movement)) 
 	var moved = move_and_collide(
 		movement
 	)
