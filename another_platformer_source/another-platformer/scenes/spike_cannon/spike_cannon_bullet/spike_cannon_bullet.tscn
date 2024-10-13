@@ -7,6 +7,7 @@
 size = Vector2(6, 6)
 
 [node name="SpikeCannonBullet" type="Node2D"]
+z_index = 1
 script = ExtResource("1_i6nlc")
 
 [node name="Area2D" type="Area2D" parent="."]
