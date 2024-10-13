@@ -9,12 +9,19 @@ extends Node2D
 @export var shoot_interval: float = 1.0
 @export var bullet_speed: float = 100.0
 @export var destroy_bullet_after: float = 1.0
+@export var shoot_immediately: bool = false
 
 
 func _ready() -> void:
 	shoot_timer.wait_time = shoot_interval
 	shoot_timer.timeout.connect(_handle_shoot_timer_timeout)
-	shoot_timer.start()
+	Logger.create("SpikeCannon._ready", "shoot_immediately: " + str(shoot_immediately))
+	
+	if shoot_immediately:
+		await get_tree().create_timer(randf_range(0.25, 0.5)).timeout
+		Callable(_shoot).call_deferred()
+	else:
+		shoot_timer.start()
 	
 	
 func _shoot() -> void:

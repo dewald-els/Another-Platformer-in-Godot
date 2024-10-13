@@ -1,0 +1,74 @@
+[gd_scene load_steps=9 format=4 uid="uid://csq20uo7wwg8c"]
+
+[ext_resource type="PackedScene" uid="uid://chms2w2ome023" path="res://scenes/level/base_level.tscn" id="1_px21b"]
+[ext_resource type="Script" path="res://scenes/level/levels/011/level_011.gd" id="2_l38pq"]
+[ext_resource type="PackedScene" uid="uid://bbttbe6gdeovv" path="res://scenes/spike_cannon/spike_cannon.tscn" id="3_u54a4"]
+[ext_resource type="PackedScene" uid="uid://bppyiw3244apg" path="res://scenes/death_zone/death_zone.tscn" id="3_urmts"]
+[ext_resource type="PackedScene" uid="uid://eo78hxwjhrue" path="res://scenes/falling_ice/falling_ice.tscn" id="4_5b5yl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ja0un"]
+size = Vector2(352, 18)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y2j6c"]
+size = Vector2(16, 146)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y1npm"]
+size = Vector2(16, 146)
+
+[node name="Level_011" instance=ExtResource("1_px21b")]
+script = ExtResource("2_l38pq")
+
+[node name="Platforms" parent="TileLayers" index="0"]
+tile_map_data = PackedByteArray("AAAAAAkAAQAQAAUAAAABAAkAAQAQAAUAAAACAAkAAQAQAAUAAAAaAAkAAQAPAAUAAAAbAAkAAQAQAAUAAAADAAkAAQARAAUAAAAcAAkAAQAQAAUAAAAdAAkAAQAQAAUAAAAaAAoAAQAPAAYAAAAaAAsAAQAPAAYAAAADAAoAAQARAAYAAAADAAsAAQARAAYAAAAIAAoAAQASAAUAAAAIAAsAAQASAAYAAAAMAAoAAQASAAUAAAAMAAsAAQASAAYAAAAVAAoAAQASAAUAAAAVAAsAAQASAAYAAAARAAoAAQASAAUAAAARAAsAAQASAAYAAAAIAAwAAQASAAYAAAAIAA0AAQASAAYAAAAIAA4AAQASAAYAAAAIAA8AAQASAAYAAAAIABAAAQASAAYAAAAMAAwAAQASAAYAAAAMAA0AAQASAAYAAAAMAA4AAQASAAYAAAAMAA8AAQASAAYAAAAMABAAAQASAAYAAAARAAwAAQASAAYAAAARAA0AAQASAAYAAAARAA4AAQASAAYAAAARAA8AAQASAAYAAAARABAAAQASAAYAAAAVAAwAAQASAAYAAAAVAA0AAQASAAYAAAAVAA4AAQASAAYAAAAVAA8AAQASAAYAAAAVABAAAQASAAYAAAAaAAwAAQAPAAYAAAAaAA0AAQAPAAYAAAAaAA4AAQAPAAYAAAAaAA8AAQAPAAYAAAAaABAAAQAPAAYAAAADAAwAAQARAAYAAAADAA0AAQARAAYAAAADAA4AAQARAAYAAAADAA8AAQARAAYAAAADABAAAQARAAYAAAALAAAAAQAQAAsAAAAMAAAAAQAQAAsAAAANAAAAAQAQAAsAAAAQAAAAAQAQAAsAAAARAAAAAQAQAAsAAAASAAAAAQAQAAsAAAABAAAAAQARAAoAAAACAAAAAQAQAAsAAAADAAAAAQAQAAsAAAAEAAAAAQAQAAsAAAAFAAAAAQAQAAsAAAAGAAAAAQAQAAsAAAAHAAAAAQAQAAsAAAAIAAAAAQAQAAsAAAAJAAAAAQAQAAsAAAAKAAAAAQAQAAsAAAAOAAAAAQAQAAsAAAAPAAAAAQAQAAsAAAATAAAAAQAQAAsAAAAUAAAAAQAQAAsAAAAVAAAAAQAQAAsAAAAWAAAAAQAQAAsAAAAXAAAAAQAQAAsAAAAYAAAAAQAQAAsAAAAZAAAAAQAQAAsAAAAaAAAAAQAQAAsAAAAbAAAAAQAQAAsAAAAcAAAAAQAPAAoAAAABAAIAAQARAAsAAAABAAEAAQARAAoAAAAAAAIAAQAQAAsAAAAcAAIAAQAPAAsAAAAdAAIAAQAQAAsAAAAcAAEAAQAPAAoAAAAIAAkAAQARAAEAAAAMAAkAAQARAAAAAAAVAAkAAQAQAAAAAAARAAkAAQASAAEAAAAaAAEAAQASAAEAADADAAEAAQASAAAAADABAAcAAQAGAAkAAAABAAgAAQAGAAoAAAAeAP//AQASAAoAAAAeAAAAAQASAAoAAAAeAAEAAQASAAoAAAAeAAIAAQASAAoAAAAeAAMAAQASAAoAAAAeAAQAAQASAAoAAAAeAAUAAQASAAoAAAAeAAYAAQASAAoAAAAeAAcAAQASAAoAAAAeAAgAAQASAAoAAAAeAAkAAQASAAoAAAAeAAoAAQASAAoAAAAeAAsAAQASAAoAAAAeAAwAAQASAAoAAAAeAA0AAQASAAoAAAAeAA4AAQASAAoAAAAeAA8AAQASAAoAAAAeABAAAQASAAoAAAAeABEAAQASAAoAAAAeABIAAQASAAoAAAD/////AQASAAoAAAD//wAAAQASAAoAAAD//wEAAQASAAoAAAD//wIAAQASAAoAAAD//wMAAQASAAoAAAD//wQAAQASAAoAAAD//wUAAQASAAoAAAD//wYAAQASAAoAAAD//wcAAQASAAoAAAD//wgAAQASAAoAAAD//wkAAQASAAoAAAD//woAAQASAAoAAAD//wsAAQASAAoAAAD//wwAAQASAAoAAAD//w0AAQASAAoAAAD//w4AAQASAAoAAAD//w8AAQASAAoAAAD//xAAAQASAAoAAAD//xEAAQASAAoAAAD//xIAAQASAAoAAAA=")
+
+[node name="Key" parent="." index="2"]
+position = Vector2(240, 139)
+
+[node name="LevelExit" parent="." index="3"]
+position = Vector2(456, 144)
+
+[node name="Player" parent="." index="4"]
+position = Vector2(8, 144)
+
+[node name="DeathZone" parent="Hazards" index="0" instance=ExtResource("3_urmts")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hazards/DeathZone" index="0"]
+position = Vector2(0, 7)
+shape = SubResource("RectangleShape2D_ja0un")
+
+[node name="FallingIce" parent="Hazards" index="1" node_paths=PackedStringArray("trigger_area_2d") instance=ExtResource("4_5b5yl")]
+position = Vector2(200, 16)
+trigger_area_2d = NodePath("Area2D")
+time_before_falling = 0.25
+FALL_SPEED = 300.0
+
+[node name="Area2D" type="Area2D" parent="Hazards/FallingIce" index="6"]
+position = Vector2(-32, 0)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hazards/FallingIce/Area2D" index="0"]
+position = Vector2(0, 72)
+shape = SubResource("RectangleShape2D_y2j6c")
+
+[node name="FallingIce2" parent="Hazards" index="2" node_paths=PackedStringArray("trigger_area_2d") instance=ExtResource("4_5b5yl")]
+position = Vector2(280, 16)
+trigger_area_2d = NodePath("Area2D2")
+time_before_falling = 0.25
+FALL_SPEED = 300.0
+
+[node name="Area2D2" type="Area2D" parent="Hazards/FallingIce2" index="6"]
+position = Vector2(-32, 0)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hazards/FallingIce2/Area2D2" index="0"]
+position = Vector2(0, 72)
+shape = SubResource("RectangleShape2D_y1npm")
+
+[node name="SpikeCannon" parent="Projectiles" index="0" instance=ExtResource("3_u54a4")]
+position = Vector2(64, 152)
+shoot_interval = 3.0
+bullet_speed = 250.0
+destroy_bullet_after = 1.45
+shoot_immediately = true
