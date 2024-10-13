@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 @onready var pushing_area_2d: Area2D = %PushingArea2D
 
-@export var gravity_multiplier: float = 0.5
+@export var gravity_multiplier: float = 0.95
 
 var movement_speed: float = 0.0
 var being_pushed: bool = false
