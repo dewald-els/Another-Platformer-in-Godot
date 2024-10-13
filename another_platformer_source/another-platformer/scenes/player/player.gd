@@ -26,6 +26,8 @@ extends CharacterBody2D
 ## Number of times the player can jump without landing on the floor.
 @export var max_jumps: int = 2
 
+@export var player_death_scene: PackedScene
+
 
 const PUSH_FORCE: float = 1.5
 const MIN_PUSH_FORCE: float = 0.15
@@ -42,10 +44,10 @@ var _allowed_to_move: bool = true
 func _ready() -> void:
 	Logger.create("Player._ready: ", "Jump velocity: " + str(jump_velocity))
 	_start_position = global_position
+	SignalBus.pause_player.connect(_handle_pause_player)
 	health.died.connect(_handle_died)
 	ladder_area_2d.body_entered.connect(_handle_ladder_entered)
 	ladder_area_2d.body_exited.connect(_handle_ladder_exit)
-	SignalBus.pause_player.connect(_handle_pause_player)
 	box_push_area_2d.body_entered.connect(_handle_box_entered)
 	box_push_area_2d.body_exited.connect(_handle_box_exited)
 
@@ -154,9 +156,16 @@ func stop_climb() -> void:
 	
 	
 func _handle_died() -> void:
+	visuals.visible = false
 	Logger.create("Player._handle_died", "resetting to " + str(_start_position))
-	global_position = _start_position
+	var death = player_death_scene.instantiate() as PlayerDeath
+	death.respawn_player.connect(_respawn_player)
+	get_tree().root.add_child(death)
+	death.global_position = global_position
 	
+func _respawn_player() -> void:
+	visuals.visible = true
+	global_position = _start_position
 
 func _handle_ladder_exit(_other_body: Node2D) -> void:
 	Logger.create("Player._handle_ladder_exit", _other_body.name)

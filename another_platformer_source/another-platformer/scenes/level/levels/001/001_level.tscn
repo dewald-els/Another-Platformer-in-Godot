@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bbkvbpl56ac20" path="res://scenes/notification/notification_trigger.tscn" id="3_xlo4r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k57pg"]
-size = Vector2(272, 12)
+size = Vector2(273, 7)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mldnh"]
 size = Vector2(20, 42)
@@ -27,7 +27,7 @@ position = Vector2(8, 192)
 position = Vector2(256, 272)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hazards/DeathZone" index="0"]
-position = Vector2(-8, 4)
+position = Vector2(-8, 0)
 shape = SubResource("RectangleShape2D_k57pg")
 
 [node name="NotificationTrigger" parent="Notifications" index="0" instance=ExtResource("3_xlo4r")]

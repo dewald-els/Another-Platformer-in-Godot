@@ -1,0 +1,65 @@
+[gd_scene load_steps=9 format=3 uid="uid://vn77i4jgskpv"]
+
+[ext_resource type="Script" path="res://scenes/player/player_death/player_death.gd" id="1_2ltih"]
+[ext_resource type="Texture2D" uid="uid://ci4t2sgmoi4cg" path="res://scenes/player/player_death/sprites/player_death_001.png" id="2_hmciy"]
+[ext_resource type="Texture2D" uid="uid://bnxjqmtj313xk" path="res://scenes/player/player_death/sprites/player_death_002.png" id="3_ddl3n"]
+[ext_resource type="Texture2D" uid="uid://bbo7qfrtdqdoo" path="res://scenes/player/player_death/sprites/player_death_003.png" id="4_7el5m"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_874o3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_hmciy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ddl3n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_7el5m")
+}],
+"loop": false,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="Curve" id="Curve_g5pwa"]
+_data = [Vector2(0.00319489, 0.732157), 0.0, 0.0, 0, 0, Vector2(0.391374, 0.991247), 0.0233164, 0.0233164, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_xfyc2"]
+curve = SubResource("Curve_g5pwa")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_b8afl"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 200.0
+initial_velocity_max = 200.0
+gravity = Vector3(0, 320, 0)
+radial_accel_min = -2.23517e-06
+radial_accel_max = -2.23517e-06
+damping_min = 300.0
+damping_max = 300.0
+scale_max = 1.5
+scale_curve = SubResource("CurveTexture_xfyc2")
+
+[node name="PlayerDeath" type="Node2D"]
+script = ExtResource("1_2ltih")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -16)
+sprite_frames = SubResource("SpriteFrames_874o3")
+autoplay = "default"
+frame = 2
+frame_progress = 1.0
+
+[node name="ExplodeParticles" type="GPUParticles2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -16)
+emitting = false
+amount = 12
+process_material = SubResource("ParticleProcessMaterial_b8afl")
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+randomness = 0.5
