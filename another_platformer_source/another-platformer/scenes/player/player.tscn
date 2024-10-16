@@ -83,6 +83,5 @@ position = Vector2(0, -8)
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="Visuals"]
 unique_name_in_owner = true
 sprite_frames = ExtResource("2_emhr1")
-animation = &"idle"
+animation = &"run"
 autoplay = "idle"
-frame_progress = 0.958772
