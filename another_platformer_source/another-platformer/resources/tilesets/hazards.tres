@@ -1,9 +1,9 @@
 [gd_resource type="TileSet" load_steps=3 format=3 uid="uid://ldqkoxhkv4fw"]
 
-[ext_resource type="Texture2D" uid="uid://b8vaonhcgqc8f" path="res://assets/tilemaps/monochrome_tilemap_transparent_packed.png" id="1_coi1b"]
+[ext_resource type="Texture2D" uid="uid://b8vaonhcgqc8f" path="res://assets/tilemaps/monochrome_tilemap_transparent_packed.png" id="1_j0skf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rs6bd"]
-texture = ExtResource("1_coi1b")
+texture = ExtResource("1_j0skf")
 1:0/0 = 0
 2:0/0 = 0
 3:0/0 = 0
@@ -126,7 +126,7 @@ texture = ExtResource("1_coi1b")
 0:6/0 = 0
 1:6/0 = 0
 2:6/0 = 0
-2:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-5.625, 1, 5.625, 1.125, 5.625, 8, -5.625, 8)
+2:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 3:6/0 = 0
 4:6/0 = 0
 5:6/0 = 0
@@ -169,7 +169,7 @@ texture = ExtResource("1_coi1b")
 4:8/0 = 0
 5:8/0 = 0
 6:8/0 = 0
-6:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-5.625, 1, 5.625, 1.125, 5.625, 8, -5.625, 8)
+6:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 7:8/0 = 0
 8:8/0 = 0
 9:8/0 = 0
@@ -187,7 +187,7 @@ texture = ExtResource("1_coi1b")
 1:9/0 = 0
 2:9/0 = 0
 3:9/0 = 0
-3:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-5.625, 1, 5.625, 1.125, 5.625, 8, -5.625, 8)
+3:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 4:9/0 = 0
 5:9/0 = 0
 6:9/0 = 0
@@ -208,7 +208,7 @@ texture = ExtResource("1_coi1b")
 1:10/0 = 0
 2:10/0 = 0
 3:10/0 = 0
-3:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(-5.625, 1, 5.625, 1.125, 5.625, 8, -5.625, 8)
+3:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 4:10/0 = 0
 5:10/0 = 0
 6:10/0 = 0
@@ -404,6 +404,10 @@ texture = ExtResource("1_coi1b")
 17:19/0 = 0
 18:19/0 = 0
 19:19/0 = 0
+0:0/0 = 0
+11:6/0 = 0
+16:6/0 = 0
+18:18/0 = 0
 
 [resource]
 physics_layer_0/collision_layer = 4

@@ -32,6 +32,7 @@ max_ladder_speed = 100
 max_climb_speed = 100
 fall_gravity_multiplier = 1.8
 player_death_scene = ExtResource("2_1d4j2")
+metadata/_edit_vertical_guides_ = [-33.0]
 
 [node name="Components" type="Node2D" parent="."]
 
@@ -85,3 +86,5 @@ unique_name_in_owner = true
 sprite_frames = ExtResource("2_emhr1")
 animation = &"run"
 autoplay = "idle"
+frame = 3
+frame_progress = 0.82709

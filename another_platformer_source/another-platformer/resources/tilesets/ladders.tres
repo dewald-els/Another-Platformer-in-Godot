@@ -1,9 +1,9 @@
 [gd_resource type="TileSet" load_steps=3 format=3 uid="uid://5aa3jayy60n0"]
 
-[ext_resource type="Texture2D" uid="uid://b8vaonhcgqc8f" path="res://assets/tilemaps/monochrome_tilemap_transparent_packed.png" id="1_kafhk"]
+[ext_resource type="Texture2D" uid="uid://b8vaonhcgqc8f" path="res://assets/tilemaps/monochrome_tilemap_transparent_packed.png" id="1_37bpk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rcm3j"]
-texture = ExtResource("1_kafhk")
+texture = ExtResource("1_37bpk")
 1:0/0 = 0
 2:0/0 = 0
 3:0/0 = 0
@@ -64,8 +64,9 @@ texture = ExtResource("1_kafhk")
 18:2/0 = 0
 19:2/0 = 0
 0:3/0 = 0
-0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 1.25, -8, 1.25)
+0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:3/0 = 0
+1:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:3/0 = 0
 3:3/0 = 0
 4:3/0 = 0
@@ -87,6 +88,7 @@ texture = ExtResource("1_kafhk")
 0:4/0 = 0
 0:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:4/0 = 0
+1:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:4/0 = 0
 3:4/0 = 0
 4:4/0 = 0
@@ -106,8 +108,9 @@ texture = ExtResource("1_kafhk")
 18:4/0 = 0
 19:4/0 = 0
 0:5/0 = 0
-0:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 1.25, -8, 1.25)
+0:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:5/0 = 0
+1:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:5/0 = 0
 3:5/0 = 0
 4:5/0 = 0
@@ -129,6 +132,7 @@ texture = ExtResource("1_kafhk")
 0:6/0 = 0
 0:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:6/0 = 0
+1:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:6/0 = 0
 3:6/0 = 0
 4:6/0 = 0
@@ -404,6 +408,10 @@ texture = ExtResource("1_kafhk")
 17:19/0 = 0
 18:19/0 = 0
 19:19/0 = 0
+0:0/0 = 0
+11:6/0 = 0
+16:6/0 = 0
+18:18/0 = 0
 
 [resource]
 physics_layer_0/collision_layer = 32
