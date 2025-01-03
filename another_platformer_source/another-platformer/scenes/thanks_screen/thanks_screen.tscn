@@ -1,0 +1,73 @@
+[gd_scene load_steps=3 format=3 uid="uid://rdfmx421o4mf"]
+
+[ext_resource type="Script" path="res://scenes/thanks_screen/thanks_screen.gd" id="1_0wmhg"]
+[ext_resource type="PackedScene" uid="uid://cwiad2an6cb60" path="res://scenes/ui/button/game_button.tscn" id="2_5d3qe"]
+
+[node name="ThanksScreen" type="CanvasLayer"]
+script = ExtResource("1_0wmhg")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Special thanks to"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Artwork"
+horizontal_alignment = 1
+
+[node name="Label5" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Kenney.nl"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Music:"
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = " https://juhanijunkala.com/"
+horizontal_alignment = 1
+
+[node name="Label6" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Sfx:"
+horizontal_alignment = 1
+
+[node name="Label7" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "https://sfxr.me/"
+horizontal_alignment = 1
+
+[node name="BackButton" parent="MarginContainer/PanelContainer/VBoxContainer" instance=ExtResource("2_5d3qe")]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Back"

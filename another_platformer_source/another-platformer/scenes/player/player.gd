@@ -122,6 +122,7 @@ func jump() -> void:
 	if Input.is_action_just_pressed("jump") and (jump_count < max_jumps or is_on_floor()):
 		velocity.y = jump_velocity
 		jump_count += 1
+		SfxPlayer.play_jump()
 	
 func apply_gravity(delta: float) -> void:
 	if not is_on_floor() and not is_on_ladder:

@@ -21,6 +21,8 @@ Logger="*res://globals/logger/logger.tscn"
 KeyManager="*res://globals/key_manager/key_manager.tscn"
 SceneManager="*res://globals/scene_manager/scene_manager.tscn"
 SignalBus="*res://globals/signal_bus/signal_bus.tscn"
+MusicPlayer="*res://globals/music_player/music_player.tscn"
+SfxPlayer="*res://globals/sfx_player/sfx_player.tscn"
 
 [display]
 

@@ -9,7 +9,7 @@ signal respawn_player
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	animated_sprite_2d.animation_finished.connect(_handle_animation_ended)
-
+	SfxPlayer.play_explosion()
 
 func _destroy() -> void:
 	queue_free()

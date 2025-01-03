@@ -61,7 +61,7 @@ text = "Play"
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
-text = "Options"
+text = "Thanks"
 
 [node name="QuitButton" parent="MarginContainer/Panel/VBoxContainer/VBoxContainer" instance=ExtResource("2_degby")]
 unique_name_in_owner = true

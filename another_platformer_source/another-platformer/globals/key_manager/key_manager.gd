@@ -9,4 +9,5 @@ func has_key() -> bool:
 
 func collect_key() -> void:
 	_is_key_collected = true
+	SfxPlayer.play_coin_pickup()
 	key_collected.emit()
