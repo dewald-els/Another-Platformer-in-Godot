@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://fdp25j7mkl71"]
 
 [ext_resource type="Texture2D" uid="uid://bpk6nhhxe3648" path="res://scenes/falling_tile/sprites/falling_title.png" id="1_c0iuy"]
-[ext_resource type="Script" path="res://scenes/falling_tile/falling_tile.gd" id="1_n0xlu"]
+[ext_resource type="Script" uid="uid://defebkbl15xcn" path="res://scenes/falling_tile/falling_tile.gd" id="1_n0xlu"]
 
 [sub_resource type="Animation" id="Animation_0oyjj"]
 length = 0.001
@@ -37,8 +37,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nha3g"]
 _data = {
-"RESET": SubResource("Animation_0oyjj"),
-"jiggle": SubResource("Animation_l6gmu")
+&"RESET": SubResource("Animation_0oyjj"),
+&"jiggle": SubResource("Animation_l6gmu")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kjbpg"]

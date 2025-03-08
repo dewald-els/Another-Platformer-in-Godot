@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://t0aphhtwljoq"]
 
-[ext_resource type="Script" path="res://scenes/splash_screen/splash_screen.gd" id="1_fkp1o"]
+[ext_resource type="Script" uid="uid://csder8awnsc38" path="res://scenes/splash_screen/splash_screen.gd" id="1_fkp1o"]
 
 [node name="SplashScreen" type="CanvasLayer"]
 script = ExtResource("1_fkp1o")

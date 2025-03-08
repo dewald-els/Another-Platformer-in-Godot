@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=4 uid="uid://c88nj3wyrswss"]
 
 [ext_resource type="PackedScene" uid="uid://chms2w2ome023" path="res://scenes/level/base_level.tscn" id="1_gkbpy"]
-[ext_resource type="Script" path="res://scenes/level/levels/005/level_005.gd" id="2_e0e2x"]
+[ext_resource type="Script" uid="uid://cch0yq7kkyh03" path="res://scenes/level/levels/005/level_005.gd" id="2_e0e2x"]
 [ext_resource type="PackedScene" uid="uid://bppyiw3244apg" path="res://scenes/death_zone/death_zone.tscn" id="3_n4qqc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ohc47"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dpnungsgsgppe"]
 
 [ext_resource type="Texture2D" uid="uid://b8vaonhcgqc8f" path="res://assets/tilemaps/monochrome_tilemap_transparent_packed.png" id="1_0nyvm"]
-[ext_resource type="Script" path="res://scenes/lift/lift_door/lift_door.gd" id="1_qd7bo"]
+[ext_resource type="Script" uid="uid://cxudvnrg7f50x" path="res://scenes/lift/lift_door/lift_door.gd" id="1_qd7bo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u6ger"]
 size = Vector2(16, 48)

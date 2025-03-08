@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://d0mbrf6s53agk"]
 
-[ext_resource type="Script" path="res://globals/music_player/music_player.gd" id="1_eacmk"]
+[ext_resource type="Script" uid="uid://blyyjcqpinj70" path="res://globals/music_player/music_player.gd" id="1_eacmk"]
 [ext_resource type="AudioStream" uid="uid://dq2vmrtt3ha4t" path="res://assets/music/Juhani Junkala [Chiptune Adventures] OGG/Juhani Junkala [Chiptune Adventures] 1. Stage 1.ogg" id="1_ocjqy"]
 
 [node name="MusicPlayer" type="Node"]

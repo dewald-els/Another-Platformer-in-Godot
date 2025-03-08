@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://rdfmx421o4mf"]
 
-[ext_resource type="Script" path="res://scenes/thanks_screen/thanks_screen.gd" id="1_0wmhg"]
+[ext_resource type="Script" uid="uid://d2gj8hwmm4w4c" path="res://scenes/thanks_screen/thanks_screen.gd" id="1_0wmhg"]
 [ext_resource type="PackedScene" uid="uid://cwiad2an6cb60" path="res://scenes/ui/button/game_button.tscn" id="2_5d3qe"]
 
 [node name="ThanksScreen" type="CanvasLayer"]

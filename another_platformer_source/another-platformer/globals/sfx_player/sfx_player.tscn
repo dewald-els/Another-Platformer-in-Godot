@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://ddh2dcg5h0nsp"]
 
-[ext_resource type="Script" path="res://globals/sfx_player/sfx_player.gd" id="1_sspxw"]
+[ext_resource type="Script" uid="uid://cryb4wru0lkb3" path="res://globals/sfx_player/sfx_player.gd" id="1_sspxw"]
 [ext_resource type="AudioStream" uid="uid://c4nhp0dw457jb" path="res://assets/sfx/pickupCoin.wav" id="2_4x4e1"]
 [ext_resource type="AudioStream" uid="uid://b4viu2tqtxpwb" path="res://assets/sfx/explosion.wav" id="3_8oye8"]
 [ext_resource type="AudioStream" uid="uid://b0q6i4q2grk65" path="res://assets/sfx/jump.wav" id="4_pvbv6"]

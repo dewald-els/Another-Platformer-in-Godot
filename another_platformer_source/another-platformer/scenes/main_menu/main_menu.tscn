@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dhvsfayyk24d8"]
 
-[ext_resource type="Script" path="res://scenes/main_menu/main_menu.gd" id="1_baqe5"]
+[ext_resource type="Script" uid="uid://cxvx8lgybrr78" path="res://scenes/main_menu/main_menu.gd" id="1_baqe5"]
 [ext_resource type="PackedScene" uid="uid://cwiad2an6cb60" path="res://scenes/ui/button/game_button.tscn" id="2_degby"]
 
 [node name="MainMenu" type="CanvasLayer"]
