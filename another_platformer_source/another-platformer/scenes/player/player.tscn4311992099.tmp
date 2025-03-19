@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://muio45wgvwim"]
+[gd_scene load_steps=18 format=3 uid="uid://muio45wgvwim"]
 
 [ext_resource type="Script" uid="uid://c440k1ybm20ir" path="res://scenes/player/player.gd" id="1_r4kqk"]
 [ext_resource type="PackedScene" uid="uid://vn77i4jgskpv" path="res://scenes/player/player_death/player_death.tscn" id="2_1d4j2"]
@@ -11,7 +11,6 @@
 [ext_resource type="Script" uid="uid://bhjb75aowuv32" path="res://scenes/player/state/jumping.gd" id="5_je7p5"]
 [ext_resource type="Script" uid="uid://b1kvmqufi4ljo" path="res://scenes/player/state/falling.gd" id="6_fm80t"]
 [ext_resource type="Script" uid="uid://bdm71qtcjyin2" path="res://scenes/player/state/climbing.gd" id="8_je7p5"]
-[ext_resource type="PackedScene" uid="uid://2kw521a35ymj" path="res://scenes/components/velocity/velocity_component.tscn" id="10_gx1jg"]
 [ext_resource type="Script" uid="uid://b2tx4jxbnjj82" path="res://scenes/player/player_debug.gd" id="12_fm80t"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hxxsl"]
@@ -34,19 +33,13 @@ z_index = 1
 collision_layer = 18
 collision_mask = 65
 script = ExtResource("1_r4kqk")
-acceleration = 150.0
-max_speed = 85
+acceleration = 200.0
+max_speed = 150
 max_ladder_speed = 100
 max_climb_speed = 100
-jump_height_in_units = 3.5
 fall_gravity_multiplier = 1.8
 player_death_scene = ExtResource("2_1d4j2")
 metadata/_edit_vertical_guides_ = [-33.0]
-
-[node name="CoyoteTimer" type="Timer" parent="."]
-unique_name_in_owner = true
-wait_time = 0.1
-one_shot = true
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource("3_h17s1")
@@ -68,19 +61,16 @@ script = ExtResource("8_je7p5")
 
 [node name="Paused" type="Node" parent="StateMachine"]
 
-[node name="Components" type="Node" parent="."]
+[node name="Components" type="Node2D" parent="."]
 
 [node name="Health" parent="Components" instance=ExtResource("2_q5gb0")]
 unique_name_in_owner = true
 max_health = 1.0
 
-[node name="VelocityComponent" parent="Components" instance=ExtResource("10_gx1jg")]
-unique_name_in_owner = true
+[node name="Hurtbox" parent="Components" node_paths=PackedStringArray("health") instance=ExtResource("3_tqnlu")]
+health = NodePath("../Health")
 
-[node name="Hurtbox" parent="." node_paths=PackedStringArray("health") instance=ExtResource("3_tqnlu")]
-health = NodePath("../Components/Health")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Components/Hurtbox"]
 position = Vector2(0, -5)
 shape = SubResource("CircleShape2D_hxxsl")
 

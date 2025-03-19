@@ -22,7 +22,7 @@ position = Vector2(152, 216)
 position = Vector2(432, 256)
 
 [node name="Player" parent="." index="4"]
-position = Vector2(32, 64)
+position = Vector2(32, 216)
 
 [node name="SlammingColumnGroup" parent="Hazards" index="0" instance=ExtResource("3_oh41y")]
 z_index = -1
@@ -52,36 +52,27 @@ position = Vector2(32, 8)
 
 [node name="FallingTile" parent="FallingPlatforms" index="0" instance=ExtResource("5_m2iky")]
 position = Vector2(88, 240)
-time_before_falling = 0.15
 
 [node name="FallingTile2" parent="FallingPlatforms" index="1" instance=ExtResource("5_m2iky")]
 position = Vector2(104, 240)
-time_before_falling = 0.15
 
 [node name="FallingTile3" parent="FallingPlatforms" index="2" instance=ExtResource("5_m2iky")]
 position = Vector2(120, 240)
-time_before_falling = 0.15
 
 [node name="FallingTile4" parent="FallingPlatforms" index="3" instance=ExtResource("5_m2iky")]
 position = Vector2(136, 240)
-time_before_falling = 0.15
 
 [node name="FallingTile5" parent="FallingPlatforms" index="4" instance=ExtResource("5_m2iky")]
 position = Vector2(152, 240)
-time_before_falling = 0.15
 
 [node name="FallingTile6" parent="FallingPlatforms" index="5" instance=ExtResource("5_m2iky")]
 position = Vector2(168, 240)
-time_before_falling = 0.15
 
 [node name="FallingTile7" parent="FallingPlatforms" index="6" instance=ExtResource("5_m2iky")]
 position = Vector2(184, 240)
-time_before_falling = 0.15
 
 [node name="FallingTile8" parent="FallingPlatforms" index="7" instance=ExtResource("5_m2iky")]
 position = Vector2(200, 240)
-time_before_falling = 0.15
 
 [node name="FallingTile9" parent="FallingPlatforms" index="8" instance=ExtResource("5_m2iky")]
 position = Vector2(216, 240)
-time_before_falling = 0.15

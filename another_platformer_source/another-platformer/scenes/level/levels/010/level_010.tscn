@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://xxrgkoy7xuw8"]
+[gd_scene load_steps=9 format=4 uid="uid://xxrgkoy7xuw8"]
 
 [ext_resource type="PackedScene" uid="uid://chms2w2ome023" path="res://scenes/level/base_level.tscn" id="1_cttwm"]
 [ext_resource type="Script" uid="uid://be1ounskdr6a4" path="res://scenes/level/levels/010/level_010.gd" id="2_w8esg"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://ca7ej0aknsmja" path="res://scenes/lift/lift.tscn" id="3_geeb7"]
 [ext_resource type="PackedScene" uid="uid://daphcqiykrwe3" path="res://scenes/box/box.tscn" id="4_53rjh"]
 [ext_resource type="PackedScene" uid="uid://dpnungsgsgppe" path="res://scenes/lift/lift_door/lift_door.tscn" id="5_7x074"]
+[ext_resource type="PackedScene" uid="uid://fdp25j7mkl71" path="res://scenes/falling_tile/falling_tile.tscn" id="7_rx5eu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5yr45"]
 size = Vector2(272, 18)
@@ -42,3 +43,6 @@ max_distance = 32.0
 [node name="Box" parent="Interactions" index="2" instance=ExtResource("4_53rjh")]
 z_index = 1
 position = Vector2(121, 128)
+
+[node name="FallingTile" parent="." index="9" instance=ExtResource("7_rx5eu")]
+position = Vector2(334, 160)

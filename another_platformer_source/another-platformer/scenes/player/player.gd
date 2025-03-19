@@ -6,12 +6,15 @@ extends CharacterBody2D
 @onready var ladder_area_2d: Area2D = %LadderArea2D
 @onready var box_push_area_2d: Area2D = %BoxPushArea2D
 @onready var visuals: Node2D = %Visuals
+@onready var coyote_timer: Timer = %CoyoteTimer
+@onready var velocity_component: VelocityComponent = %VelocityComponent
 
 @export_group("Movement")
 ## How quickly the player can get to the maximum speed.
 @export var acceleration: float = 5.0
 ## Maximum speed that player can move.
 @export var max_speed: int = 40
+@export var air_speed: int = 50
 @export var max_push_speed: int = 25
 @export var max_ladder_speed: int = 30
 @export var max_climb_speed: int = 40
@@ -32,18 +35,23 @@ extends CharacterBody2D
 const PUSH_FORCE: float = 1.5
 const MIN_PUSH_FORCE: float = 0.15
 
-
 var is_pushing_body: bool = false
 var is_on_ladder: bool = false
 var jump_count: int = 0
 # 1 Unit = 80 = 16px 
-var jump_velocity: float = -(5 * jump_height_in_units * 16)
+var jump_velocity: float = 0.0
 var _start_position: Vector2
 var _allowed_to_move: bool = true
 
 func _ready() -> void:
+	Logger.create("Player._ready: ", "Jump units: " + str(jump_height_in_units))
+	jump_velocity = -(5 * jump_height_in_units * 16)
 	Logger.create("Player._ready: ", "Jump velocity: " + str(jump_velocity))
 	_start_position = global_position
+	
+	velocity_component.acceleration = acceleration
+	velocity_component.max_speed = max_speed
+	
 	SignalBus.pause_player.connect(_handle_pause_player)
 	health.died.connect(_handle_died)
 	ladder_area_2d.body_entered.connect(_handle_ladder_entered)
@@ -51,34 +59,6 @@ func _ready() -> void:
 	box_push_area_2d.body_entered.connect(_handle_box_entered)
 	box_push_area_2d.body_exited.connect(_handle_box_exited)
 
-
-func _physics_process(delta: float) -> void:
-	
-	apply_gravity(delta)
-	
-	if _allowed_to_move == false:
-		return
-	
-	jump()
-	
-	var direction = get_movement_direction()
-	
-	if direction:
-		accelerate(direction)
-	else:
-		stop()
-		
-	var climb_direction = get_climb_direction()
-	
-	if climb_direction:
-		climb(climb_direction)
-	elif is_on_ladder:
-		stop_climb()
-
-	move_and_slide()
-	play_animation()
-	flip_player(direction)
-	
 
 func play_animation() -> void:
 	var move_speed = abs(velocity.x)
