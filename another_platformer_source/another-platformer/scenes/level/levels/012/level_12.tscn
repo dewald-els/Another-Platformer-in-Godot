@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://da7gltfdv1qyc"]
+
+[ext_resource type="PackedScene" uid="uid://chms2w2ome023" path="res://scenes/level/base_level.tscn" id="1_hrr1w"]
+[ext_resource type="Script" uid="uid://budkxhetx1opy" path="res://scenes/level/levels/012/level_012.gd" id="2_83i4p"]
+
+[node name="Level_0012" instance=ExtResource("1_hrr1w")]
+script = ExtResource("2_83i4p")
+
+[node name="Platforms" parent="TileLayers" index="0"]
+tile_map_data = PackedByteArray()
