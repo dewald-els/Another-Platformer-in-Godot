@@ -45,7 +45,14 @@ fall_gravity_multiplier = 1.8
 player_death_scene = ExtResource("2_1d4j2")
 metadata/_edit_vertical_guides_ = [-33.0]
 
-[node name="CoyoteTimer" type="Timer" parent="."]
+[node name="Timers" type="Node" parent="."]
+
+[node name="CoyoteTimer" type="Timer" parent="Timers"]
+unique_name_in_owner = true
+wait_time = 0.1
+one_shot = true
+
+[node name="JumpBufferTimer" type="Timer" parent="Timers"]
 unique_name_in_owner = true
 wait_time = 0.1
 one_shot = true

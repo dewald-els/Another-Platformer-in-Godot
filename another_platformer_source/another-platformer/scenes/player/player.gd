@@ -9,6 +9,8 @@ extends CharacterBody2D
 @onready var coyote_timer: Timer = %CoyoteTimer
 @onready var velocity_component: VelocityComponent = %VelocityComponent
 @onready var state_machine: StateMachine = %StateMachine
+@onready var jump_buffer_timer: Timer = %JumpBufferTimer
+
 
 @export_group("Movement")
 ## How quickly the player can get to the maximum speed.

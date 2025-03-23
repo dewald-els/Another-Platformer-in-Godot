@@ -19,8 +19,12 @@ func physics_update(delta: float) -> void:
 	if Input.is_action_just_pressed("jump") and not player.coyote_timer.is_stopped():
 		player.coyote_timer.stop()
 		finished.emit(JUMPING)
-	
-	if player.is_on_floor():
+	elif Input.is_action_just_pressed("jump"):
+		player.jump_buffer_timer.start()
+	elif player.is_on_floor() and not player.jump_buffer_timer.is_stopped():
+		player.jump_buffer_timer.stop()
+		finished.emit(JUMPING)
+	elif player.is_on_floor():
 		finished.emit(IDLE)
 	elif player.is_on_ladder:
 		finished.emit(CLIMBING)

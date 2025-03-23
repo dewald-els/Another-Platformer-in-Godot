@@ -1,10 +1,14 @@
-[gd_scene load_steps=6 format=4 uid="uid://c5tx7p4yqutfe"]
+[gd_scene load_steps=8 format=4 uid="uid://c5tx7p4yqutfe"]
 
 [ext_resource type="PackedScene" uid="uid://chms2w2ome023" path="res://scenes/level/base_level.tscn" id="1_t8304"]
 [ext_resource type="Script" uid="uid://drrktyjpqmfe1" path="res://scenes/level/levels/008/level_008.gd" id="2_tiosi"]
 [ext_resource type="PackedScene" uid="uid://bmr48hdgnr116" path="res://scenes/slamming_column/slamming_column_group.tscn" id="3_oh41y"]
 [ext_resource type="PackedScene" uid="uid://c1oie8mhxh2n" path="res://scenes/slamming_column/slamming_column.tscn" id="4_kpg8q"]
 [ext_resource type="PackedScene" uid="uid://fdp25j7mkl71" path="res://scenes/falling_tile/falling_tile.tscn" id="5_m2iky"]
+[ext_resource type="PackedScene" uid="uid://bppyiw3244apg" path="res://scenes/death_zone/death_zone.tscn" id="5_puiou"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cf6vd"]
+size = Vector2(256, 12)
 
 [node name="Level_008" instance=ExtResource("1_t8304")]
 script = ExtResource("2_tiosi")
@@ -44,6 +48,13 @@ position = Vector2(-24, 8)
 
 [node name="SlammingColumn2" parent="Hazards/SlammingColumnGroup2" index="2" instance=ExtResource("4_kpg8q")]
 position = Vector2(32, 8)
+
+[node name="DeathZone" parent="Hazards" index="2" instance=ExtResource("5_puiou")]
+position = Vector2(160, 272)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hazards/DeathZone" index="0"]
+position = Vector2(-32, -9)
+shape = SubResource("RectangleShape2D_cf6vd")
 
 [node name="FallingPlatforms" type="Node" parent="." index="7"]
 
