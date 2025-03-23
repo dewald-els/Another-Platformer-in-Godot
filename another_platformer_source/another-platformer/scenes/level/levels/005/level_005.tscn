@@ -23,14 +23,14 @@ position = Vector2(248, 64)
 [node name="LevelExit" parent="." index="3"]
 position = Vector2(456, 192)
 
-[node name="Player" parent="." index="4"]
-position = Vector2(8, 192)
-
 [node name="DeathZone" parent="Hazards" index="0" instance=ExtResource("3_n4qqc")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hazards/DeathZone" index="0"]
 position = Vector2(4, 3)
 shape = SubResource("RectangleShape2D_ohc47")
+
+[node name="PlayerSpawner" parent="." index="8"]
+position = Vector2(16, 184)
 
 [node name="FallingTile" parent="." index="9" instance=ExtResource("4_ptf70")]
 position = Vector2(216, 96)

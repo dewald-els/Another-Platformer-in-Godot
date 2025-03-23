@@ -1,7 +1,7 @@
 extends PlayerState
 
 
-func enter(prev: String, data = {}) -> void:
+func enter(_prev: String, _data = {}) -> void:
 	player.animated_sprite.play("run")
 
 func physics_update(delta: float) -> void:
@@ -9,6 +9,8 @@ func physics_update(delta: float) -> void:
 	player.velocity_component.accelerate(Vector2(direction, 1))
 	player.apply_gravity(delta)
 	player.velocity_component.move(player)
+	
+	player.flip_player(direction)
 
 	if not player.is_on_floor():
 		finished.emit(FALLING)

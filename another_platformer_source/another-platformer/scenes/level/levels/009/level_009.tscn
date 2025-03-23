@@ -19,9 +19,6 @@ position = Vector2(232, 40)
 [node name="LevelExit" parent="." index="3"]
 position = Vector2(361, 224)
 
-[node name="Player" parent="." index="4"]
-position = Vector2(72, 224)
-
 [node name="SpikeCannon2" parent="Projectiles" index="0" instance=ExtResource("2_2aqw6")]
 position = Vector2(208, 183)
 rotation = 3.14159
@@ -68,3 +65,6 @@ position = Vector2(16, 152)
 shoot_interval = 1.7
 bullet_speed = 200.0
 destroy_bullet_after = 0.85
+
+[node name="PlayerSpawner" parent="." index="8"]
+position = Vector2(64, 216)

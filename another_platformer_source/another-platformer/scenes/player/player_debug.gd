@@ -7,5 +7,5 @@ extends Node2D
 @export var state_machine: StateMachine
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	debug_label.text = state_machine.state.name

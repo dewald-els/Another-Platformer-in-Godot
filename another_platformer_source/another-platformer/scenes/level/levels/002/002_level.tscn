@@ -20,9 +20,6 @@ tile_map_data = PackedByteArray("AAD//xMAAQASAA4AAAD//xQAAQASAA4AAAD//xUAAQASAA4
 [node name="Key" parent="." index="2"]
 position = Vector2(295, 111)
 
-[node name="Player" parent="." index="4"]
-position = Vector2(10, 128)
-
 [node name="DeathZone" parent="Hazards" index="0" instance=ExtResource("3_vtg01")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hazards/DeathZone" index="0"]
@@ -35,3 +32,6 @@ notification_text = "You can jump twice."
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Notifications/NotificationTrigger" index="0"]
 shape = SubResource("RectangleShape2D_f6wov")
+
+[node name="PlayerSpawner" parent="." index="8"]
+position = Vector2(12, 118)

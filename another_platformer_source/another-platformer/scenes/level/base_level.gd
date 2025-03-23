@@ -5,7 +5,6 @@ var reload_on_player_death: bool = false
 
 func _ready() -> void:
 	SignalBus.exit_reached.connect(_handle_exit_reached)
-	SceneManager.set_next_level_index(3)
 	
 	var player = get_tree().get_first_node_in_group("player") as Player
 	

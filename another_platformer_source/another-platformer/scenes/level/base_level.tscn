@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://chms2w2ome023"]
+[gd_scene load_steps=9 format=3 uid="uid://chms2w2ome023"]
 
 [ext_resource type="Script" uid="uid://ckjobpjiuks55" path="res://scenes/level/base_level.gd" id="1_os02y"]
 [ext_resource type="TileSet" uid="uid://bsvdughxw32n3" path="res://resources/tilesets/black.tres" id="2_kxqed"]
@@ -7,6 +7,7 @@
 [ext_resource type="TileSet" uid="uid://ldqkoxhkv4fw" path="res://resources/tilesets/hazards.tres" id="4_3ntxo"]
 [ext_resource type="PackedScene" uid="uid://cs7dfy6uywq7w" path="res://scenes/key/key.tscn" id="4_iqwbr"]
 [ext_resource type="PackedScene" uid="uid://c3vtwuo0vnhkm" path="res://scenes/level_exit/level_exit.tscn" id="5_72gju"]
+[ext_resource type="PackedScene" uid="uid://dgr25y3emu4gf" path="res://scenes/player_spawner/player_spawner.tscn" id="7_kxd26"]
 
 [node name="BaseLevel" type="Node"]
 script = ExtResource("1_os02y")
@@ -36,9 +37,6 @@ position = Vector2(96, 104)
 unique_name_in_owner = true
 position = Vector2(456, 176)
 
-[node name="Player" parent="." instance=ExtResource("3_13oa1")]
-position = Vector2(8, 16)
-
 [node name="Hazards" type="Node" parent="."]
 
 [node name="Notifications" type="Node" parent="."]
@@ -46,3 +44,7 @@ position = Vector2(8, 16)
 [node name="Projectiles" type="Node" parent="." groups=["projectiles"]]
 
 [node name="Interactions" type="Node" parent="."]
+
+[node name="PlayerSpawner" parent="." instance=ExtResource("7_kxd26")]
+position = Vector2(93, 188)
+player_scene = ExtResource("3_13oa1")

@@ -1,6 +1,6 @@
 extends PlayerState
 
-func enter(prev_state: String, data = {}) -> void:
+func enter(_prev_state: String, _data = {}) -> void:
 	player.animated_sprite.play("jump")
 	player.coyote_timer.start()
 	

@@ -1,8 +1,6 @@
 class_name PlayerDeath
 extends Node2D
 
-signal respawn_player
-
 @onready var animated_sprite_2d: AnimatedSprite2D = %AnimatedSprite2D
 @onready var explode_particles: GPUParticles2D = %ExplodeParticles
 
@@ -18,6 +16,6 @@ func _handle_animation_ended() -> void:
 	animated_sprite_2d.visible = false
 	explode_particles.emitting = true
 	await get_tree().create_timer(0.5).timeout
-	respawn_player.emit()
+	SignalBus.emit_respawn_player()
 	Callable(_destroy).call_deferred()
 	

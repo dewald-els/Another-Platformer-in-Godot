@@ -42,7 +42,6 @@ var jump_count: int = 0
 # 1 Unit = 80 = 16px 
 var jump_velocity: float = 0.0
 var _start_position: Vector2
-var _allowed_to_move: bool = true
 
 func _ready() -> void:
 	Logger.create("Player._ready: ", "Jump units: " + str(jump_height_in_units))
@@ -141,14 +140,10 @@ func _handle_died() -> void:
 	visuals.visible = false
 	Logger.create("Player._handle_died", "resetting to " + str(_start_position))
 	var death = player_death_scene.instantiate() as PlayerDeath
-	death.respawn_player.connect(_respawn_player)
 	get_tree().root.add_child(death)
 	death.global_position = global_position
 	Callable(queue_free).call_deferred()
-	
-func _respawn_player() -> void:
-	visuals.visible = true
-	global_position = _start_position
+
 
 func _handle_ladder_exit(_other_body: Node2D) -> void:
 	Logger.create("Player._handle_ladder_exit", _other_body.name)

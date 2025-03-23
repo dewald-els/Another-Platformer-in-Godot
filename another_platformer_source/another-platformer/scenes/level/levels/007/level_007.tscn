@@ -24,9 +24,6 @@ tile_map_data = PackedByteArray("AAAAAAsAAQAPAAUAAAAAAAwAAQAPAAYAAAAAAA0AAQAPAAY
 [node name="Key" parent="." index="2"]
 position = Vector2(424, 160)
 
-[node name="Player" parent="." index="4"]
-position = Vector2(8, 176)
-
 [node name="DeathZone" parent="Hazards" index="0" instance=ExtResource("3_olmr5")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hazards/DeathZone" index="0"]
@@ -103,3 +100,6 @@ position = Vector2(360, 192)
 
 [node name="FallingTile11" parent="FallingPlatforms" index="12" instance=ExtResource("4_0o7hl")]
 position = Vector2(360, 192)
+
+[node name="PlayerSpawner" parent="." index="9"]
+position = Vector2(8, 160)

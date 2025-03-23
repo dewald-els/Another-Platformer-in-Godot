@@ -27,9 +27,6 @@ position = Vector2(240, 139)
 [node name="LevelExit" parent="." index="3"]
 position = Vector2(456, 144)
 
-[node name="Player" parent="." index="4"]
-position = Vector2(8, 144)
-
 [node name="DeathZone" parent="Hazards" index="0" instance=ExtResource("3_urmts")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hazards/DeathZone" index="0"]
@@ -72,3 +69,6 @@ shoot_interval = 3.0
 bullet_speed = 250.0
 destroy_bullet_after = 1.45
 shoot_immediately = true
+
+[node name="PlayerSpawner" parent="." index="8"]
+position = Vector2(16, 131)

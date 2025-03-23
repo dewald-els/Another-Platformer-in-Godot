@@ -31,9 +31,6 @@ position = Vector2(242, 192)
 [node name="LevelExit" parent="." index="3"]
 position = Vector2(440, 224)
 
-[node name="Player" parent="." index="4"]
-position = Vector2(15, 224)
-
 [node name="FallingIce" type="Node" parent="." index="6"]
 
 [node name="FallingIce" parent="FallingIce" index="0" node_paths=PackedStringArray("trigger_area_2d") instance=ExtResource("3_htc44")]
@@ -111,3 +108,6 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FallingIce/FallingIce5/Area2D" index="0"]
 position = Vector2(-18, 64)
 shape = SubResource("RectangleShape2D_lg4xa")
+
+[node name="PlayerSpawner" parent="." index="9"]
+position = Vector2(12, 214)
