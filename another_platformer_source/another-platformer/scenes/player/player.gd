@@ -8,6 +8,7 @@ extends CharacterBody2D
 @onready var visuals: Node2D = %Visuals
 @onready var coyote_timer: Timer = %CoyoteTimer
 @onready var velocity_component: VelocityComponent = %VelocityComponent
+@onready var state_machine: StateMachine = %StateMachine
 
 @export_group("Movement")
 ## How quickly the player can get to the maximum speed.
@@ -143,6 +144,7 @@ func _handle_died() -> void:
 	death.respawn_player.connect(_respawn_player)
 	get_tree().root.add_child(death)
 	death.global_position = global_position
+	Callable(queue_free).call_deferred()
 	
 func _respawn_player() -> void:
 	visuals.visible = true
@@ -157,8 +159,8 @@ func _handle_ladder_entered(_other_body: Node2D) -> void:
 	is_on_ladder = true
 	
 func _handle_pause_player() -> void:
-	animated_sprite.pause()
-	_allowed_to_move = false
+	print("Pause player")
+	state_machine.state.finished.emit("Paused")
 	
 func _handle_box_entered(_other_body: Node2D) -> void:
 	print("Pushing now?")

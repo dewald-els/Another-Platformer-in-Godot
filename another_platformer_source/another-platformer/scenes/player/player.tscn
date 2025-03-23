@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://muio45wgvwim"]
+[gd_scene load_steps=21 format=3 uid="uid://muio45wgvwim"]
 
 [ext_resource type="Script" uid="uid://c440k1ybm20ir" path="res://scenes/player/player.gd" id="1_r4kqk"]
 [ext_resource type="PackedScene" uid="uid://vn77i4jgskpv" path="res://scenes/player/player_death/player_death.tscn" id="2_1d4j2"]
@@ -11,6 +11,8 @@
 [ext_resource type="Script" uid="uid://bhjb75aowuv32" path="res://scenes/player/state/jumping.gd" id="5_je7p5"]
 [ext_resource type="Script" uid="uid://b1kvmqufi4ljo" path="res://scenes/player/state/falling.gd" id="6_fm80t"]
 [ext_resource type="Script" uid="uid://bdm71qtcjyin2" path="res://scenes/player/state/climbing.gd" id="8_je7p5"]
+[ext_resource type="Script" uid="uid://dhmi1pcq638cw" path="res://scenes/player/state/paused.gd" id="9_ugbui"]
+[ext_resource type="Script" uid="uid://bwets7l44elcp" path="res://scenes/player/state/death.gd" id="10_fcs02"]
 [ext_resource type="PackedScene" uid="uid://2kw521a35ymj" path="res://scenes/components/velocity/velocity_component.tscn" id="10_gx1jg"]
 [ext_resource type="Script" uid="uid://b2tx4jxbnjj82" path="res://scenes/player/player_debug.gd" id="12_fm80t"]
 
@@ -49,6 +51,7 @@ wait_time = 0.1
 one_shot = true
 
 [node name="StateMachine" type="Node" parent="."]
+unique_name_in_owner = true
 script = ExtResource("3_h17s1")
 
 [node name="Idle" type="Node" parent="StateMachine"]
@@ -67,6 +70,10 @@ script = ExtResource("6_fm80t")
 script = ExtResource("8_je7p5")
 
 [node name="Paused" type="Node" parent="StateMachine"]
+script = ExtResource("9_ugbui")
+
+[node name="Death" type="Node" parent="StateMachine"]
+script = ExtResource("10_fcs02")
 
 [node name="Components" type="Node" parent="."]
 
@@ -121,7 +128,7 @@ position = Vector2(0, -8)
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="Visuals"]
 unique_name_in_owner = true
 sprite_frames = ExtResource("2_emhr1")
-animation = &"run"
+animation = &"die"
 autoplay = "idle"
 
 [node name="Debug" type="Node2D" parent="." node_paths=PackedStringArray("state_machine")]

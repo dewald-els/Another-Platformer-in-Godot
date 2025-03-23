@@ -14,6 +14,8 @@ func physics_update(delta: float) -> void:
 		finished.emit(FALLING)
 	elif Input.is_action_just_pressed("jump") and player.is_on_floor():
 		finished.emit(JUMPING)
+	elif player.is_on_ladder:
+		finished.emit(CLIMBING)
 	elif direction == 0:
 		finished.emit(IDLE)
 	

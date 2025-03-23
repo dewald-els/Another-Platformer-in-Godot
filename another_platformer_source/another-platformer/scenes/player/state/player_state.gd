@@ -4,6 +4,8 @@ const IDLE: String = "Idle"
 const RUNNING: String = "Running"
 const JUMPING: String = "Jumping"
 const FALLING: String = "Falling"
+const PAUSED: String = "Paused"
+const CLIMBING: String = "Climbing"
 
 var player: Player
 
