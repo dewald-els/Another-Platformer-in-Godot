@@ -5,4 +5,4 @@ func enter(_prev: String, _data = {}) -> void:
 	player.animated_sprite.play("idle")
 	
 func physics_update(delta: float) -> void:
-	player.apply_gravity(delta)
+	player.apply_gravity(delta, player.fall_gravity_multiplier)

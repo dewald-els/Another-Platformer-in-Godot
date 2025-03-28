@@ -1,10 +1,39 @@
-[gd_scene load_steps=3 format=3 uid="uid://da7gltfdv1qyc"]
+[gd_scene load_steps=6 format=4 uid="uid://da7gltfdv1qyc"]
 
 [ext_resource type="PackedScene" uid="uid://chms2w2ome023" path="res://scenes/level/base_level.tscn" id="1_hrr1w"]
 [ext_resource type="Script" uid="uid://budkxhetx1opy" path="res://scenes/level/levels/012/level_012.gd" id="2_83i4p"]
+[ext_resource type="PackedScene" uid="uid://car3vb23vt8a5" path="res://scenes/spring/spring.tscn" id="3_1k8t3"]
+[ext_resource type="PackedScene" uid="uid://bppyiw3244apg" path="res://scenes/death_zone/death_zone.tscn" id="3_kannx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nvqjr"]
+size = Vector2(512, 20)
 
 [node name="Level_0012" instance=ExtResource("1_hrr1w")]
 script = ExtResource("2_83i4p")
 
 [node name="Platforms" parent="TileLayers" index="0"]
-tile_map_data = PackedByteArray()
+tile_map_data = PackedByteArray("AAAAAAsAAQALAA0AAAABAAsAAQALAA0AAAACAAsAAQALAA0AAAADAAsAAQAMAA0AAAAaAAsAAQAKAA0AAAAbAAsAAQALAA0AAAAcAAsAAQALAA0AAAAdAAsAAQALAA0AAAD/////AQANAA4AAAD//wAAAQANAA4AAAD//wEAAQANAA4AAAD//wIAAQANAA4AAAD//wMAAQANAA4AAAD//wQAAQANAA4AAAD//wUAAQANAA4AAAD//wYAAQANAA4AAAD//wcAAQANAA4AAAD//wgAAQANAA4AAAD//wkAAQANAA4AAAD//woAAQANAA4AAAD//wsAAQANAA4AAAD//wwAAQANAA4AAAD//w0AAQANAA4AAAD//w4AAQANAA4AAAD//w8AAQANAA4AAAD//xAAAQANAA4AAAAeABAAAQANAA4AAAAeAA8AAQANAA4AAAAeAA4AAQANAA4AAAAeAA0AAQANAA4AAAAeAAwAAQANAA4AAAAeAAsAAQANAA4AAAAeAAoAAQANAA4AAAAeAAkAAQANAA4AAAAeAAgAAQANAA4AAAAeAAcAAQANAA4AAAAeAAYAAQANAA4AAAAeAAUAAQANAA4AAAAeAAQAAQANAA4AAAAeAAMAAQANAA4AAAAeAAIAAQANAA4AAAAeAAEAAQANAA4AAAAeAAAAAQANAA4AAAAeAP//AQANAA4AAAAHAAsAAQANABAAAAAMAAsAAQANABAAAAARAAsAAQANABAAAAAWAAsAAQANABAAAAADAAwAAQAMAA4AAAADAA0AAQAMAA4AAAADAA4AAQAMAA4AAAADAA8AAQAMAA4AAAADABAAAQAMAA4AAAADABEAAQAMAA4AAAAaAAwAAQAKAA4AAAAaAA0AAQAKAA4AAAAaAA4AAQAKAA4AAAAaAA8AAQAKAA4AAAAaABAAAQAKAA4AAAAaABEAAQAKAA4AAAA=")
+
+[node name="DeathZone" parent="Hazards" index="0" instance=ExtResource("3_kannx")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hazards/DeathZone" index="0"]
+shape = SubResource("RectangleShape2D_nvqjr")
+
+[node name="Spring" parent="Interactions" index="0" instance=ExtResource("3_1k8t3")]
+position = Vector2(120, 176)
+pad_velocity_in_units = 5
+
+[node name="Spring2" parent="Interactions" index="1" instance=ExtResource("3_1k8t3")]
+position = Vector2(200, 176)
+pad_velocity_in_units = 5
+
+[node name="Spring3" parent="Interactions" index="2" instance=ExtResource("3_1k8t3")]
+position = Vector2(280, 176)
+pad_velocity_in_units = 5
+
+[node name="Spring4" parent="Interactions" index="3" instance=ExtResource("3_1k8t3")]
+position = Vector2(360, 176)
+pad_velocity_in_units = 5
+
+[node name="PlayerSpawner" parent="." index="8"]
+position = Vector2(16, 160)

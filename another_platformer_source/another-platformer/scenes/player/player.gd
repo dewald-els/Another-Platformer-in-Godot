@@ -46,8 +46,8 @@ var jump_velocity: float = 0.0
 var _start_position: Vector2
 
 func _ready() -> void:
+	jump_velocity = - (5 * jump_height_in_units * 16)
 	Logger.create("Player._ready: ", "Jump units: " + str(jump_height_in_units))
-	jump_velocity = -(5 * jump_height_in_units * 16)
 	Logger.create("Player._ready: ", "Jump velocity: " + str(jump_velocity))
 	_start_position = global_position
 	
@@ -75,7 +75,6 @@ func play_animation() -> void:
 		animated_sprite.play("jump")
 	
 
-
 func get_movement_direction() -> float:
 	var direction := Input.get_axis("move_left", "move_right")
 	return direction
@@ -96,7 +95,7 @@ func get_climb_direction() -> float:
 	
 func jump() -> void:
 	if is_on_ladder:
-		return 
+		return
 	
 	if is_on_floor():
 		jump_count = 0
@@ -108,16 +107,12 @@ func jump() -> void:
 		
 func apply_jump(apply_velocity: float) -> void:
 	velocity.y = apply_velocity
-	
-func apply_gravity(delta: float) -> void:
-	if not is_on_floor() and not is_on_ladder:
-		if Input.is_action_pressed("jump") and jump_count <= 1:
-			velocity.y += get_gravity().y * jump_gravity_multiplier * delta
-		else:
-			velocity.y += get_gravity().y * fall_gravity_multiplier * delta
+
+func apply_gravity(delta: float, gravity_modifier: float) -> void:
+	velocity.y += get_gravity().y * gravity_modifier * delta
+
 
 func accelerate(direction: float) -> void:
-	
 	var target_velocity: float = direction * max_speed
 	if is_on_ladder:
 		target_velocity = direction * max_ladder_speed

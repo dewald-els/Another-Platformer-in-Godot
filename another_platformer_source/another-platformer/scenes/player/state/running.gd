@@ -7,7 +7,7 @@ func enter(_prev: String, _data = {}) -> void:
 func physics_update(delta: float) -> void:
 	var direction: float = player.get_movement_direction()
 	player.velocity_component.accelerate(Vector2(direction, 1))
-	player.apply_gravity(delta)
+	player.apply_gravity(delta, player.fall_gravity_multiplier)
 	player.velocity_component.move(player)
 	
 	player.flip_player(direction)
@@ -20,4 +20,3 @@ func physics_update(delta: float) -> void:
 		finished.emit(CLIMBING)
 	elif direction == 0:
 		finished.emit(IDLE)
-	

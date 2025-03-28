@@ -4,9 +4,15 @@ func enter(_prev_state: String, _data = {}) -> void:
 	player.animated_sprite.play("jump")
 	player.coyote_timer.start()
 	
+
+func get_gravity_multiplier() -> float:
+	if Input.is_action_pressed("jump"):
+		return player.jump_gravity_multiplier
 	
+	return player.fall_gravity_multiplier
+
 func physics_update(delta: float) -> void:
-	player.apply_gravity(delta)
+	player.apply_gravity(delta, get_gravity_multiplier())
 	
 	var direction: float = player.get_movement_direction()
 	var target_velocity: float = direction * player.max_speed

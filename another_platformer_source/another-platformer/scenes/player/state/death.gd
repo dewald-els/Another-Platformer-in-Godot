@@ -6,7 +6,7 @@ func enter(_prev_state: String, _data = {}) -> void:
 	
 	
 func physics_update(delta: float) -> void:
-	player.apply_gravity(delta)
+	player.apply_gravity(delta, player.fall_gravity_multiplier)
 	
 	var direction: float = player.get_movement_direction()
 	var target_velocity: float = direction * player.max_speed
