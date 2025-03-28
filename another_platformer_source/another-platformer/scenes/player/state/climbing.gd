@@ -9,7 +9,7 @@ func physics_update(delta: float) -> void:
 			y_direction
 		)
 	)
-	player.apply_gravity(delta, player.fall_gravity_multiplier)
+	player.apply_gravity(delta)
 	player.velocity_component.move(player)
 	
 	player.flip_player(x_direction)

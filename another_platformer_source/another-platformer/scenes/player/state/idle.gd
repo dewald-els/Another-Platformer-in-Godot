@@ -8,7 +8,7 @@ func enter(_previous_state_path: String, _data := {}) -> void:
 
 
 func physics_update(delta: float) -> void:
-	player.apply_gravity(delta, player.fall_gravity_multiplier)
+	player.apply_gravity(delta)
 	player.move_and_slide()
 
 	_update_state()

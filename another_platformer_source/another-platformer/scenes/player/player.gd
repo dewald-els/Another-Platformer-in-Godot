@@ -108,7 +108,7 @@ func jump() -> void:
 func apply_jump(apply_velocity: float) -> void:
 	velocity.y = apply_velocity
 
-func apply_gravity(delta: float, gravity_modifier: float) -> void:
+func apply_gravity(delta: float, gravity_modifier: float = fall_gravity_multiplier) -> void:
 	velocity.y += get_gravity().y * gravity_modifier * delta
 
 
